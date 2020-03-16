@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BusinessDetailsFragment">
+
+<!--    <Spinner-->
+<!--        android:id="@+id/details_BTN"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="34dp"-->
+<!--        android:entries="@array/details_array" />-->
+
+    <TextView
+        android:id="@+id/business_details_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="פרטי עסק"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:id="@+id/business_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="שם בית העסק"
+        android:inputType="text|textPersonName"
+        android:paddingRight="50dp"
+        android:maxLength="20"
+        android:layout_below="@+id/business_details_title"/>
+
+    <EditText
+        android:id="@+id/business_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="כתובת"
+        android:layout_marginTop="20dp"
+        android:inputType="textPostalAddress"
+        android:paddingRight="50dp"
+        android:maxLength="20"
+        android:layout_below="@+id/business_name"/>
+
+
+    <EditText
+        android:id="@+id/email_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="אימייל"
+        android:layout_marginTop="20dp"
+        android:inputType="textEmailAddress"
+        android:paddingRight="50dp"
+        android:maxLength="20"
+        android:layout_below="@+id/business_address"
+        />
+
+
+    <EditText
+        android:id="@+id/business_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="טלפון"
+        android:inputType="textPhonetic"
+        android:layout_marginTop="20dp"
+        android:paddingRight="50dp"
+        android:maxLength="20"
+        android:layout_below="@+id/email_address"/>
+
+
+    <EditText
+        android:id="@+id/business_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="קישור לדף העסק"
+        android:layout_marginTop="20dp"
+        android:inputType="text|textWebEditText"
+        android:paddingRight="50dp"
+        android:maxLength="20"
+        android:layout_below="@+id/business_phone"/>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="עדכן"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_bg"
+    tools:context=".MenuActivityClient"
+    >
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:columnOrderPreserved="false"
+        android:padding="6dp"
+        android:rowCount="3">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/navigate_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+
+                <ImageView
+                    android:id="@+id/IMG_waze"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="2"
+                    android:src="@drawable/ic_waze" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="0.5"
+                    android:text="ניווט לבית העסק"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/contact_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+
+                <ImageView
+                    android:id="@+id/IMG_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:src="@drawable/ic_contact" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="0.5"
+                    android:text="צור קשר"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cancel_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+
+                <ImageView
+                    android:id="@+id/IMG_import"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_cancel" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="0.5"
+                    android:text="ביטול תור"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/create_queue"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="18dp"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+
+                <ImageView
+                    android:id="@+id/IMG_manage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:src="@drawable/ic_appointment" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="0.5"
+                    android:text="קביעת תור"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+
+                <ImageView
+                    android:id="@+id/IMG_confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="2"
+                    android:src="@drawable/ic_change" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="0.5"
+                    android:text="שינוי תור"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="18dp"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+
+                <ImageView
+                    android:id="@+id/IMG_support"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="2"
+                    android:src="@drawable/ic_support" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="0.5"
+                    android:text="תמיכה"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_rowWeight="1"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_marginLeft="16dp"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:layout_marginRight="16dp"-->
+<!--            android:layout_marginBottom="18dp"-->
+<!--            app:cardBackgroundColor="@color/transparent"-->
+<!--            app:cardCornerRadius="8dp"-->
+<!--            app:cardElevation="8dp"-->
+
+<!--            >-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_horizontal|center_vertical"-->
+<!--                android:layout_margin="16dp"-->
+<!--                android:orientation="vertical"-->
+<!--                android:weightSum="2">-->
+
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/IMG_settings"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="30dp"-->
+<!--                    android:layout_weight="2"-->
+<!--                    android:src="@drawable/ic_settings" />-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="30dp"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:layout_weight="0.5"-->
+<!--                    android:text="הגדרות"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="#000000"-->
+<!--                    android:textSize="16sp"-->
+<!--                    android:textStyle="bold" />-->
+
+
+<!--            </LinearLayout>-->
+
+
+
+<!--        </androidx.cardview.widget.CardView>-->
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_rowWeight="1"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_marginLeft="16dp"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:layout_marginRight="16dp"-->
+<!--            android:layout_marginBottom="18dp"-->
+<!--            app:cardBackgroundColor="@color/transparent"-->
+<!--            app:cardCornerRadius="8dp"-->
+<!--            app:cardElevation="8dp"-->
+
+<!--            >-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_horizontal|center_vertical"-->
+<!--                android:layout_margin="16dp"-->
+<!--                android:orientation="vertical"-->
+<!--                android:weightSum="2">-->
+
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/IMG_info"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="30dp"-->
+<!--                    android:layout_weight="2"-->
+<!--                    android:src="@drawable/ic_sms" />-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="30dp"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:layout_weight="0.5"-->
+<!--                    android:text="מידע"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="#000000"-->
+<!--                    android:textSize="16sp"-->
+<!--                    android:textStyle="bold" />-->
+
+
+<!--            </LinearLayout>-->
+
+
+
+<!--        </androidx.cardview.widget.CardView>-->
+
+
+
+
+
+    </GridLayout>
+
+
+
+
+</LinearLayout>

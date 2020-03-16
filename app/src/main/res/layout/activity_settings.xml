@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".Settings">
+
+
+    <ImageView
+        android:id="@+id/settings_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_settin"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        />
+
+    <FrameLayout
+        android:id="@+id/settings_fragment_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/settings_toolbar_btns"
+        android:background="@color/gray"
+        >
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/settings_toolbar_btns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/settings_title"
+        android:weightSum="4"
+        >
+
+        <Button
+            android:id="@+id/settings_BTN_app_manage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="ניהול אפליקציה"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/settings_BTN_reminders"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="תזכורות"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/settings_BTN_client_manage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="ניהול לקוחות"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/setting_BTN_business_details"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="פרטי עסק"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
+
+
+
+
+

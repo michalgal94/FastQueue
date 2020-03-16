@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1023002936887",
+    "firebase_url": "https://fastqueue-28ab9.firebaseio.com",
+    "project_id": "fastqueue-28ab9",
+    "storage_bucket": "fastqueue-28ab9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023002936887:android:9106adcef0e2dc3293e1b2",
+        "android_client_info": {
+          "package_name": "com.example.fastqueue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1023002936887-0r1h6oqm6266t9omvrgefvr4r54kr4rp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fastqueue",
+            "certificate_hash": "a29e42bba1c2aefbfb9adaef33436bcfc4e849cf"
+          }
+        },
+        {
+          "client_id": "1023002936887-6t2t6j4kk8htp04k4qkfo0bq8pm5uhl0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCto-W0f66x2Zo6ae-fczjzjjnVdMzPxzA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1023002936887-6t2t6j4kk8htp04k4qkfo0bq8pm5uhl0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

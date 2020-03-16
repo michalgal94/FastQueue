@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id = "@+id/relativeLayout1"
+        android:layout_width = "fill_parent"
+        android:layout_height = "wrap_content"
+        android:background="@color/colorPrimary"
+        >
+
+        <TextView
+            android:id = "@+id/to_when"
+            android:layout_width = "0dp"
+            android:layout_height = "wrap_content"
+            android:layout_weight = "1"
+            android:gravity = "center"
+            android:padding = "5dp"
+            android:text = "למתי"
+            android:textSize="16dp"
+            android:textColor = "#ffffff" />
+
+        <TextView
+            android:id = "@+id/finish_hour"
+            android:layout_width = "0dp"
+            android:layout_height = "wrap_content"
+            android:layout_weight = "1"
+            android:gravity = "center"
+            android:padding = "5dp"
+            android:text = "סוג תור"
+            android:textSize="16dp"
+            android:textColor = "#ffffff"/>
+
+        <TextView
+            android:id = "@+id/start_hour"
+            android:layout_width = "0dp"
+            android:layout_height = "wrap_content"
+            android:layout_weight = "1"
+            android:gravity = "center"
+            android:padding = "5dp"
+            android:textSize="16dp"
+            android:text = "לקוח"
+            android:textColor = "#ffffff" />
+
+        <TextView
+            android:id = "@+id/finish_date"
+            android:layout_width = "0dp"
+            android:layout_height = "wrap_content"
+            android:layout_weight = "1"
+            android:gravity = "center"
+            android:padding = "5dp"
+            android:textSize="16dp"
+            android:text = "פעולה"
+            android:textColor="#ffffff"/>
+
+        <TextView
+            android:id = "@+id/start_date"
+            android:layout_width = "10dp"
+            android:layout_height = "wrap_content"
+            android:layout_weight = "1"
+            android:gravity = "center"
+            android:padding = "5dp"
+            android:textSize="16dp"
+            android:text = "זמן"
+            android:textColor="#ffffff"/>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">FastQueue</string>
+
+    <!--    <string-array name="main_menu">-->
+    <!--        <item>יומן</item>-->
+    <!--        <item>לקוחות</item>-->
+    <!--        <item>דוחות</item>-->
+    <!--        <item>כללי</item>-->
+    <!--    </string-array>-->
+
+    <!--    <string-array name="details_array">-->
+    <!--        <item>פרטי בית העסק</item>-->
+    <!--        <item>כתובת</item>-->
+    <!--        <item>דוא"ל</item>-->
+    <!--        <item>טלפון</item>-->
+    <!--        <item>קישור לדף העסק</item>-->
+    <!--    </string-array>-->
+
+    <!--    <string-array name="mannage_array">-->
+    <!--        <item>ניהול לקוחות</item>-->
+    <!--        <item>הגבלת תור כפול</item>-->
+    <!--        <item>הגבלת שעות</item>-->
+    <!--        <item>עד מתי אפשר לקבוע בימים</item>-->
+    <!--        <item>עדיפות לתורים צמודים</item>-->
+    <!--        <item>הצגת מחיר</item>-->
+    <!--    </string-array>-->
+
+</resources>

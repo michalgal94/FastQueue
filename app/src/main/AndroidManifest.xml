@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.fastqueue">
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:parentActivityName="com.example.myfirstapp.MainActivity"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".ClientSchedule"></activity>
+        <activity android:name=".NavigationToBusinessPlace" />
+        <activity android:name=".ActivityContact" /> <!-- <activity android:name=".PopUpWindowSettings"></activity> -->
+        <activity android:name=".ApplicationManagementFragment" />
+        <activity android:name=".ClientManagemenFragment" />
+        <activity android:name=".BusinessDetailsFragment" />
+        <activity android:name=".Settings" />
+        <activity android:name=".Clients" />
+        <activity android:name=".MenuActivityClient" />
+        <activity android:name=".MenuActivityBusiness" />
+        <activity android:name=".ContactsList" />
+        <activity android:name=".RemindersFragment" />
+        <activity android:name=".SignUpClient" />
+        <activity android:name=".SignUpBusiness" />
+        <activity android:name=".Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ActivityTimeBusiness" />
+        <activity android:name=".ChooseOption" />
+        <activity android:name=".BusinessSchedule"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAVlR2fuQzr4TIsTNvbHpdi8imXPT5WazM" />
+    </application>
+
+</manifest>

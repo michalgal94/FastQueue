@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="5dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/contact_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NAME"
+            android:textSize="24sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="2dp"/>
+
+        <TextView
+            android:id="@+id/contact_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PHONE"
+            android:textSize="24sp"
+            android:layout_below="@+id/contact_name"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="2dp"/>
+
+        <TextView
+            android:id="@+id/contact_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:text="EMAIL"
+            android:layout_below="@+id/contact_phone"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="2dp"/>
+
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>
