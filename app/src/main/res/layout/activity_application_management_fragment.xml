@@ -17,18 +17,6 @@
         android:layout_centerHorizontal="true"/>
 
 
-
-    <TextView
-        android:id="@+id/days_to_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ימים לשמירה"
-        android:textSize="18dp"
-        android:layout_marginTop="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
-        android:layout_below="@+id/management_app_title"/>
-
     <TextView
         android:id="@+id/display_holidays"
         android:layout_width="wrap_content"
@@ -38,7 +26,7 @@
         android:layout_marginTop="40dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
-        android:layout_below="@+id/days_to_save"/>
+        android:layout_below="@+id/management_app_title"/>
 
 
     <Switch
@@ -47,8 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@+id/display_holidays"
         android:layout_marginRight="150dp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/days_to_save"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/management_app_title"
         android:checked="true"
         android:textOff="Off"
         android:textOn="On"/>
@@ -64,6 +52,19 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
         android:layout_below="@+id/display_holidays"/>
+
+
+    <Switch
+        android:id="@+id/simpleSwitch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/display_holidays"
+        android:layout_marginRight="150dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/display_holidays"
+        android:checked="true"
+        android:textOff="Off"
+        android:textOn="On"/>
 
 
     <Button

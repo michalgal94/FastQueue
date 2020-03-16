@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.RectF;
 import android.os.Build;
@@ -96,6 +97,22 @@ public class ClientSchedule extends AppCompatActivity {
             }
         });
 
+
+        final List<WeekViewEvent> listevents = new ArrayList<>();
+
+        MyFirebase.getEvents(new Callback_EventsReady() {
+            @Override
+            public void eventsReady(List<WeekViewEvent> events) {
+                listevents.addAll(events);
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+
+
         mWeekView.setMonthChangeListener(new MonthLoader.MonthChangeListener() {
             @Override
             public List<WeekViewEvent> onMonthChange(int newYear, int newMonth) {
@@ -107,7 +124,7 @@ public class ClientSchedule extends AppCompatActivity {
                     for(int day = 0 ; day < 3 ; day++){
 
                         Calendar calendar = Calendar.getInstance();
-//                        calendar.set(Calendar.MINUTE,0);
+//                      calendar.set(Calendar.MINUTE,0);
                         calendar.set(Calendar.YEAR,newYear);
                         calendar.set(Calendar.MONTH,newMonth-1);
                         calendar.add(Calendar.HOUR,hour);
@@ -117,6 +134,16 @@ public class ClientSchedule extends AppCompatActivity {
                         WeekViewEvent emptyEvent = new WeekViewEvent(-1,"פנוי",calendar,endCal);
                         emptyEvent.setColor(Color.BLUE);
                         events.add(emptyEvent);
+
+
+
+                for(WeekViewEvent e : listevents) {
+                    if(!e.getStartTime().equals(emptyEvent.getStartTime()) && (!e.getEndTime().equals(emptyEvent.getEndTime())))
+                        events.add(emptyEvent);
+                    }
+
+
+
                     }
                 }
 
@@ -165,6 +192,13 @@ public class ClientSchedule extends AppCompatActivity {
         }
 
         dialog.show();
+    }
+
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent backIntent = new Intent(ClientSchedule.this,MenuActivityClient.class);
+        startActivity(backIntent);
+        ClientSchedule.this.finish();
     }
 
 

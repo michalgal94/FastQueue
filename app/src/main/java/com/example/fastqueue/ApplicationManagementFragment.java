@@ -20,6 +20,7 @@ public class ApplicationManagementFragment extends Fragment {
 
     private View view = null;
     private Switch simpleSwitch;
+    private Switch simpleSwitch1;
     private Button btnSubmit;
 
 
@@ -42,13 +43,18 @@ public class ApplicationManagementFragment extends Fragment {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String statusSwitch;
+                String statusSwitch, statusSwitch1;
                 if (simpleSwitch.isChecked())
                     statusSwitch = simpleSwitch.getTextOn().toString();
                 else
                     statusSwitch = simpleSwitch.getTextOff().toString();
 
-                Toast.makeText(getContext(), "Switch5 :" + statusSwitch, Toast.LENGTH_LONG).show(); // display the current state for switch
+                if (simpleSwitch1.isChecked())
+                    statusSwitch1 = simpleSwitch1.getTextOn().toString();
+                else
+                    statusSwitch1 = simpleSwitch1.getTextOff().toString();
+
+                Toast.makeText(getContext(),"Switch:" + statusSwitch + "\n" + "Switch1 :" + statusSwitch1 , Toast.LENGTH_LONG).show(); // display the current state for switch
             }
         });
 

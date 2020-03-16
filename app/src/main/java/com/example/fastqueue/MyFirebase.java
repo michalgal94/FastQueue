@@ -37,10 +37,10 @@ import java.util.List;
 
 public class MyFirebase {
 
-    public interface Callback_EventsReady{ //mone to class callback
-        void eventsReady(List<WeekViewEvent> events);
-        void onError();
-    }
+//    public interface Callback_EventsReady{
+//        void eventsReady(List<WeekViewEvent> events);
+//        void onError();
+//    }
 
     public static void setUser(User user) {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();

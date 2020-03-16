@@ -47,7 +47,7 @@ public class BusinessSchedule extends AppCompatActivity {
         set_date_BTN =findViewById(R.id.set_date_BTN);
 
         final List<WeekViewEvent> events = new ArrayList<>();
-        MyFirebase.getEvents(new MyFirebase.Callback_EventsReady() {
+        MyFirebase.getEvents(new Callback_EventsReady() {
             @Override
             public void eventsReady(List<WeekViewEvent> e) {
                 events.clear();
@@ -135,6 +135,7 @@ public class BusinessSchedule extends AppCompatActivity {
     }
 
     private void showSettingsDialog() {
+
         final EditText minutesForCaell = new EditText(this);
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle("הגדרות יומן")
@@ -152,42 +153,7 @@ public class BusinessSchedule extends AppCompatActivity {
     }
 
 
-//    private void showOpeningHoursDialog() {
-////        final EditText minutesForCaell = new EditText(this);
-////        final EditText soryByDay = new EditText(this);
-//        AlertDialog dialog = new AlertDialog.Builder(this)
-//                .setTitle("שעות פעילות")
-//                .setPositiveButton("שמור", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        //TODO
-//                    }
-//                })
-//                .setNegativeButton("סגור", null)
-//                .create();
-//        dialog.show();
-//    }
 
-
-//    private void showTypesDialog() {
-//        final EditText descriptionQueue = new EditText(this);
-//        final EditText minutesForEachQueue = new EditText(this);
-//        AlertDialog dialog = new AlertDialog.Builder(this)
-//                .setTitle("סוגי תורים")
-//                .setMessage("סוג תור")
-//                .setView(descriptionQueue)
-//                .setMessage("דקות")
-//                .setView(minutesForEachQueue)
-//                .setPositiveButton("שמור", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        String task = String.valueOf(minutesForEachQueue.getText());
-//                    }
-//                })
-//                .setNegativeButton("סגור", null)
-//                .create();
-//        dialog.show();
-//    }
 
     private void showDateDialog(){
         final Dialog dialog = new Dialog(this);
@@ -228,15 +194,6 @@ public class BusinessSchedule extends AppCompatActivity {
         dialog.show();
     }
 
-//    void showTypeDialog(){ // Aviv
-//        View v = getLayoutInflater().inflate(R.layout.list_queue_types,null);
-//        TableLayout table = v.findViewById(R.id.types_table);
-//        table.addView(new Type(this,"description","30"));
-//        Dialog dialog = new Dialog(this);
-//        dialog.setContentView(v);
-//
-//        dialog.show();
-//    }
 
     private void showTypesDialog() {
 
@@ -325,7 +282,7 @@ public class BusinessSchedule extends AppCompatActivity {
 
             }
         });
-//        .addView(new ActivityTime("8/3","12/3","9:00", "20:00","sunday"));
+
 
         dialog.show();
     }

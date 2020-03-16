@@ -42,29 +42,6 @@
 
 
     <TextView
-        android:id="@+id/limit_hours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="הגבלת שעות"
-        android:layout_marginTop="40dp"
-        android:textSize="18dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
-        android:layout_below="@id/limit_double_queue"/>
-
-
-    <TextView
-        android:id="@+id/limit_days"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="עד מתי אפשר לקבוע בימים"
-        android:textSize="18dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_below="@id/limit_hours"/>
-
-    <TextView
         android:id="@+id/joined_queues"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,7 +50,7 @@
         android:layout_marginTop="40dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
-        android:layout_below="@id/limit_days"/>
+        android:layout_below="@id/limit_double_queue"/>
 
     <Switch
         android:id="@+id/Switch2"
@@ -83,7 +60,7 @@
         android:layout_toLeftOf="@+id/limit_double_queue"
         android:layout_marginRight="150dp"
         android:layout_marginTop="25dp"
-        android:layout_below="@id/limit_days"/>
+        android:layout_below="@id/limit_double_queue"/>
 
     <TextView
         android:id="@+id/display_price"

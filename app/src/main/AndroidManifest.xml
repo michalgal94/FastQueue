@@ -19,7 +19,7 @@
         <activity android:name=".Settings" />
         <activity android:name=".Clients" />
         <activity android:name=".MenuActivityClient" />
-        <activity android:name=".MenuActivityBusiness" />
+        <activity android:name=".MenuActivityBusiness"/>
         <activity android:name=".ContactsList" />
         <activity android:name=".RemindersFragment" />
         <activity android:name=".SignUpClient" />
