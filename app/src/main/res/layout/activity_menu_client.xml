@@ -19,7 +19,7 @@
 
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/navigate_card"
+            android:id="@+id/waze_card"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"

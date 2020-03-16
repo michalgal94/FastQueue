@@ -41,8 +41,6 @@ public class BusinessDetailsFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                //Todo with aviv
-
 //                final MySharedPreferences mySharedPreferences = new MySharedPreferences(getContext());
 //                String jsonUserBussiness = mySharedPreferences.getString(Constants.KEY_USER_PREFRENCES, "");
 //                Log.e("SCEASDSDFSF","GOT JSON: " + jsonUserBussiness);

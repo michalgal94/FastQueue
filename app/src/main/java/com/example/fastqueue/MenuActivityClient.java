@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,7 +14,7 @@ import com.google.gson.Gson;
 public class MenuActivityClient extends AppCompatActivity {
 
     private CardView contact_card;
-    private CardView navigate_card;
+    private CardView waze_card;
     private CardView create_queue;
     private MySharedPreferences mySharedPreferences;
 
@@ -28,7 +29,7 @@ public class MenuActivityClient extends AppCompatActivity {
         User myAccountClient = new Gson().fromJson(jsonClien, User.class);
 
         contact_card = findViewById(R.id.contact_card);
-        navigate_card = findViewById(R.id.navigate_card);
+        waze_card = findViewById(R.id.waze_card);
         create_queue = findViewById(R.id.create_queue);
 
         contact_card.setOnClickListener(new View.OnClickListener() {
@@ -42,12 +43,15 @@ public class MenuActivityClient extends AppCompatActivity {
         });
 
 
-        navigate_card.setOnClickListener(new View.OnClickListener() {
+        waze_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MenuActivityClient.this, NegativeArraySizeException.class);
-                startActivity(intent);
-                MenuActivityClient.this.finish();
+                //String uri = "waze://?ll=40.761043, -73.980545&z=10";
+                String uri = "geo: 31.886981, 35.022192";
+                startActivity(new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri)));
+//                Intent intent = new Intent(MenuActivityClient.this, NegativeArraySizeException.class);
+//                startActivity(intent);
+//                MenuActivityClient.this.finish();
 
             }
         });
