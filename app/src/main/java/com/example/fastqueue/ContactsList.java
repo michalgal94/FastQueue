@@ -70,9 +70,11 @@ public class ContactsList extends AppCompatActivity {
     private ContactListAdapter.ItemClickListener itemClickListener = new ContactListAdapter.ItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
-            //ToDO
+            Contact contact = ContactListAdapter.getItem(position);
+            //Todo
         }
     };
+
 
     public ArrayList<Contact> fetchContacts() {
 //        if( getApplicationContext().checkSelfPermission( Manifest.permission.READ_CONTACTS ) != PackageManager.PERMISSION_GRANTED )

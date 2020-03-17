@@ -10,7 +10,7 @@ import java.util.List;
 
 public class FindView extends ViewModel {
 
-//
+////
 //    private MutableLiveData<String> mText;
 //
 //    public interface OnContactsCallback{
@@ -33,7 +33,7 @@ public class FindView extends ViewModel {
 //        mText = new MutableLiveData<>();
 //        mText.setValue("This is home fragment");
 //    }
-//
+////
 //    public LiveData<String> getText() {
 //        return mText;
 //    }

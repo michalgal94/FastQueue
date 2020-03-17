@@ -60,7 +60,7 @@ public class ActivityContact extends AppCompatActivity {
 
     public void onBackPressed() {
         super.onBackPressed();
-        Intent backIntent = new Intent(ActivityContact.this,MenuActivityBusiness.class);
+        Intent backIntent = new Intent(ActivityContact.this,MenuActivityClient.class);
         startActivity(backIntent);
         ActivityContact.this.finish();
     }

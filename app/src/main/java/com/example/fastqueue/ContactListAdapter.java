@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ViewHolder> {
-    private List<Contact> mData;
+    private static List<Contact> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
@@ -70,7 +70,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     }
 
     // convenience method for getting data at click position
-    Contact getItem(int id) {
+    static Contact getItem(int id) {
         return mData.get(id);
     }
 

@@ -98,19 +98,19 @@ public class ClientSchedule extends AppCompatActivity {
         });
 
 
-        final List<WeekViewEvent> listevents = new ArrayList<>();
-
-        MyFirebase.getEvents(new Callback_EventsReady() {
-            @Override
-            public void eventsReady(List<WeekViewEvent> events) {
-                listevents.addAll(events);
-            }
-
-            @Override
-            public void onError() {
-
-            }
-        });
+//        final List<WeekViewEvent> listevents = new ArrayList<>();
+//
+//        MyFirebase.getEvents(new Callback_EventsReady() {
+//            @Override
+//            public void eventsReady(List<WeekViewEvent> events) {
+//                listevents.addAll(events);
+//            }
+//
+//            @Override
+//            public void onError() {
+//
+//            }
+//        });
 
 
         mWeekView.setMonthChangeListener(new MonthLoader.MonthChangeListener() {
@@ -124,11 +124,11 @@ public class ClientSchedule extends AppCompatActivity {
                     for(int day = 0 ; day < 3 ; day++){
 
                         Calendar calendar = Calendar.getInstance();
-//                      calendar.set(Calendar.MINUTE,0);
                         calendar.set(Calendar.YEAR,newYear);
                         calendar.set(Calendar.MONTH,newMonth-1);
                         calendar.add(Calendar.HOUR,hour);
                         calendar.add(Calendar.DAY_OF_MONTH,day);
+                        calendar.set(Calendar.MINUTE,0);
                         Calendar endCal = (Calendar) calendar.clone();
                         endCal.add(Calendar.HOUR,1);
                         WeekViewEvent emptyEvent = new WeekViewEvent(-1,"פנוי",calendar,endCal);
@@ -136,11 +136,10 @@ public class ClientSchedule extends AppCompatActivity {
                         events.add(emptyEvent);
 
 
-
-                for(WeekViewEvent e : listevents) {
-                    if(!e.getStartTime().equals(emptyEvent.getStartTime()) && (!e.getEndTime().equals(emptyEvent.getEndTime())))
-                        events.add(emptyEvent);
-                    }
+//                for(WeekViewEvent e : listevents) {
+//                    if(!e.getStartTime().equals(emptyEvent.getStartTime()) && (!e.getEndTime().equals(emptyEvent.getEndTime())))
+//                        events.add(emptyEvent);
+//                    }
 
 
 

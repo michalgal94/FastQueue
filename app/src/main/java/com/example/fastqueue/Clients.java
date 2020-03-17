@@ -12,7 +12,5 @@ public class Clients extends AppCompatActivity {
         setContentView(R.layout.activity_clients);
 
 
-
-
     }
 }
