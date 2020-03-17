@@ -24,12 +24,15 @@ import android.widget.Toast;
 import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Predicate;
 
 public class ClientSchedule extends AppCompatActivity {
 
@@ -37,8 +40,12 @@ public class ClientSchedule extends AppCompatActivity {
     private Button set_date_BTN;
     private WeekView mWeekView;
     private Context context;
+    private final List<WeekViewEvent> weekViewEvents = new ArrayList<>();
 
-
+/*
+0503896023
+12345678
+ */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +73,20 @@ public class ClientSchedule extends AppCompatActivity {
         calendar.add(Calendar.DAY_OF_YEAR, -7);
         mWeekView.goToDate(calendar);
 
+        MyFirebase.getEvents(new MyFirebase.Callback_EventsReady() {
+            @Override
+            public void eventsReady(List<WeekViewEvent> events) {
+                weekViewEvents.clear();
+                weekViewEvents.addAll(events);
+                mWeekView.goToDate(Calendar.getInstance());
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+
         mWeekView.setOnEventClickListener(new WeekView.EventClickListener(){
             @Override
             public void onEventClick(final WeekViewEvent event, RectF eventRect) {
@@ -87,10 +108,38 @@ public class ClientSchedule extends AppCompatActivity {
                                     Log.e("Saving",event.getStartTime().toString());
                                     Log.e("Saved",new Gson().toJson(event));
                                     MyFirebase.addEvent(event);
-//                                    mWeekView.goToDate(Calendar.getInstance());
+                                    weekViewEvents.add(event);
+                                    mWeekView.goToDate(mWeekView.getFirstVisibleDay());
                                 }
                             })
                             .setNegativeButton("ביטול", null)
+                            .create();
+                    dialog.show();
+                }else if(event.getId() == 1){
+                    AlertDialog dialog = new AlertDialog.Builder(context)
+                            .setTitle("ביטול תור")
+                            .setMessage("האם אתה בטוח שתרצה לבטל את התור?")
+                            .setPositiveButton("אישור", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    MyFirebase.removeEvent(event, new MyFirebase.Callback_EventRemoved() {
+                                        @Override
+                                        public void eventRemoved() {
+                                            event.setId(-1);
+                                            event.setColor(Color.BLUE);
+                                            event.setName("");
+                                            mWeekView.goToDate(mWeekView.getFirstVisibleDay());
+                                        }
+
+                                        @Override
+                                        public void onError() {
+
+                                        }
+                                    });
+
+                                }
+                            })
+                            .setNegativeButton("ביטול",null)
                             .create();
                     dialog.show();
                 }
@@ -113,27 +162,45 @@ public class ClientSchedule extends AppCompatActivity {
 //        });
 
 
+        //TODO: cancel event
+        //TODO: update after event add
+
         mWeekView.setMonthChangeListener(new MonthLoader.MonthChangeListener() {
             @Override
             public List<WeekViewEvent> onMonthChange(int newYear, int newMonth) {
                 Log.d("pttt","onMonthChange newYear="  + newYear + " newMonth=" + newMonth);
 
-                List<WeekViewEvent> events = new ArrayList<WeekViewEvent>();
-
+                List<WeekViewEvent> events = new ArrayList<>();
+                for(WeekViewEvent event : weekViewEvents){
+                    if(event == null)continue;
+                    if(event.getStartTime().get(Calendar.MONTH)+1 == newMonth && event.getStartTime().get(Calendar.YEAR) == newYear)
+                        events.add(event);
+                }
                 for(int hour = 0 ; hour < 24 ; hour++){
-                    for(int day = 0 ; day < 3 ; day++){
-
-                        Calendar calendar = Calendar.getInstance();
+                    for(int day = 0 ; day < 28 ; day++){
+                        Calendar calendar = new GregorianCalendar();
+//                        Calendar calendar = Calendar.getInstance();
                         calendar.set(Calendar.YEAR,newYear);
                         calendar.set(Calendar.MONTH,newMonth-1);
-                        calendar.add(Calendar.HOUR,hour);
-                        calendar.add(Calendar.DAY_OF_MONTH,day);
+                        calendar.set(Calendar.DAY_OF_MONTH,day);
+                        calendar.set(Calendar.HOUR_OF_DAY,hour);
                         calendar.set(Calendar.MINUTE,0);
+                        calendar.set(Calendar.SECOND,0);
+                        calendar.set(Calendar.MILLISECOND,0);
                         Calendar endCal = (Calendar) calendar.clone();
-                        endCal.add(Calendar.HOUR,1);
+                        endCal.add(Calendar.HOUR_OF_DAY,1);
                         WeekViewEvent emptyEvent = new WeekViewEvent(-1,"פנוי",calendar,endCal);
                         emptyEvent.setColor(Color.BLUE);
-                        events.add(emptyEvent);
+                        boolean add = true;
+                        for(WeekViewEvent event : weekViewEvents){
+                            if(dateIsWithin(event.getStartTime(),emptyEvent.getStartTime())){
+                                Log.e("EVENT",event.getStartTime().toString());
+                                add = false;
+                                break;
+                            }
+                        }
+                        if(add)
+                            events.add(emptyEvent);
 
 
 //                for(WeekViewEvent e : listevents) {
@@ -153,6 +220,21 @@ public class ClientSchedule extends AppCompatActivity {
         mWeekView.goToDate(Calendar.getInstance());
     }
 
+    private static boolean dateIsWithin(Calendar a, Calendar b){
+        if(a.equals(b))
+            return true;
+        int aYear = a.get(Calendar.YEAR);
+        int bYear = b.get(Calendar.YEAR);
+        int aMonth = a.get(Calendar.MONTH);
+        int bMonth = b.get(Calendar.MONTH);
+        int aDay = a.get(Calendar.DAY_OF_WEEK);
+        int bDay = b.get(Calendar.DAY_OF_WEEK);
+        int aHour = a.get(Calendar.HOUR_OF_DAY);
+        int bHour = b.get(Calendar.HOUR_OF_DAY);
+        if(aYear != bYear || aDay != bDay || aMonth != bMonth)
+            return false;
+        return aHour == bHour;
+    }
 
     private void showDateDialog(){
         final Dialog dialog = new Dialog(this);

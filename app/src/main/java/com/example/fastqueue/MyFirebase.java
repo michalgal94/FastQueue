@@ -37,10 +37,15 @@ import java.util.List;
 
 public class MyFirebase {
 
-//    public interface Callback_EventsReady{
-//        void eventsReady(List<WeekViewEvent> events);
-//        void onError();
-//    }
+    public interface Callback_EventsReady{
+        void eventsReady(List<WeekViewEvent> events);
+        void onError();
+    }
+
+    public interface Callback_EventRemoved{
+        void eventRemoved();
+        void onError();
+    }
 
     public static void setUser(User user) {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -66,8 +71,11 @@ public class MyFirebase {
                     return;
                 }
                 Iterable<DataSnapshot> childs = dataSnapshot.getChildren();
-                for(DataSnapshot d : childs)
-                    events.add((new Gson().fromJson(d.getValue(String.class),WeekViewEvent.class)));
+                for(DataSnapshot d : childs) {
+                    WeekViewEvent event = (new Gson().fromJson(d.getValue(String.class), WeekViewEvent.class));
+                    if(event != null)
+                        events.add(event);
+                }
                 callback_eventsReady.eventsReady(events);
             }
 
@@ -104,6 +112,27 @@ public class MyFirebase {
         });
     }
 
+    public static void removeEvent(final WeekViewEvent event, final Callback_EventRemoved callback){
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("Events");
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot data : dataSnapshot.getChildren()){
+                    String old = new Gson().toJson(event);
+                    if(old.equals(data.getValue(String.class))) {
+                        data.getRef().removeValue();
+                        callback.eventRemoved();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                callback.onError();
+            }
+        });
+    }
 
     public static void setBusiness(BusinessMan businessMan) {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
