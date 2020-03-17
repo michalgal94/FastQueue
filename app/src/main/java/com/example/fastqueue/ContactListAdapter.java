@@ -4,17 +4,21 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ViewHolder> {
     private static List<Contact> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
+    private Contact contact;
+    private HashMap<String, Boolean> hashMap = new HashMap<>(); // use for tick v
 
     // data is passed into the constructor
     ContactListAdapter(Context context, List<Contact> data) {
@@ -83,4 +87,14 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
+
+
+
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+        String name = contact.getName();
+        hashMap.put(name, checked);
+    }
+
 }
