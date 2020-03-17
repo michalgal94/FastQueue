@@ -47,7 +47,7 @@ public class BusinessSchedule extends AppCompatActivity {
         set_date_BTN =findViewById(R.id.set_date_BTN);
 
         final List<WeekViewEvent> events = new ArrayList<>();
-        MyFirebase.getEvents(new Callback_EventsReady() {
+        MyFirebase.getEvents(new MyFirebase.Callback_EventsReady() {
             @Override
             public void eventsReady(List<WeekViewEvent> e) {
                 events.clear();

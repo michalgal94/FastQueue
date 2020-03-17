@@ -20,17 +20,18 @@
         <activity android:name=".Clients" />
         <activity android:name=".MenuActivityClient" />
         <activity android:name=".MenuActivityBusiness">
+        </activity>
+        <activity android:name=".ContactsList" />
+        <activity android:name=".RemindersFragment" />
+        <activity android:name=".SignUpClient" />
+        <activity android:name=".SignUpBusiness" />
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ContactsList" />
-        <activity android:name=".RemindersFragment" />
-        <activity android:name=".SignUpClient" />
-        <activity android:name=".SignUpBusiness" />
-        <activity android:name=".Login"/>
         <activity android:name=".ActivityTimeBusiness" />
         <activity android:name=".ChooseOption" />
         <activity android:name=".BusinessSchedule"/>
