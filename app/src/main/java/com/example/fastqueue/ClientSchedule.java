@@ -127,7 +127,7 @@ public class ClientSchedule extends AppCompatActivity {
                                         public void eventRemoved() {
                                             event.setId(-1);
                                             event.setColor(Color.BLUE);
-                                            event.setName("");
+                                            event.setName("פנוי");
                                             mWeekView.goToDate(mWeekView.getFirstVisibleDay());
                                         }
 
