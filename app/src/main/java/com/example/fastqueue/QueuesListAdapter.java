@@ -16,9 +16,10 @@ import com.alamkanak.weekview.WeekViewEvent;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 public class QueuesListAdapter extends RecyclerView.Adapter<QueuesListAdapter.ViewHolder> {
-    private static List<WeekViewEvent> mData;
+    private List<WeekViewEvent> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
@@ -27,7 +28,6 @@ public class QueuesListAdapter extends RecyclerView.Adapter<QueuesListAdapter.Vi
     QueuesListAdapter(Context context, List<WeekViewEvent> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
-
     }
 
     // inflates the row layout from xml when needed
@@ -41,10 +41,16 @@ public class QueuesListAdapter extends RecyclerView.Adapter<QueuesListAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         WeekViewEvent event = mData.get(position);
-        holder.queueNameCreaterTextView.setText(event.getName());
-        holder.queueStartHourTextView.setText(event.getStartTime().get(Calendar.HOUR_OF_DAY));
-        holder.queueFinishHourTextView.setText(event.getEndTime().get(Calendar.HOUR_OF_DAY));
-        holder.queueDateTextView.setText(event.getStartTime().get(Calendar.DATE));
+        String[] splited = event.getName().split(" ");
+        String type = splited[splited.length-1];
+        String name = event.getName().substring(0,event.getName().length() - type.length());
+        holder.queueNameCreaterTextView.setText(name);
+        holder.queueTypeTextView.setText(type);
+        holder.queueStartHourTextView.setText(String.format(Locale.ENGLISH,"%d:00", event.getStartTime().get(Calendar.HOUR_OF_DAY)));
+        holder.queueFinishHourTextView.setText(String.format(Locale.ENGLISH,"%d:00", event.getEndTime().get(Calendar.HOUR_OF_DAY)));
+        holder.queueDateTextView.setText(String.format(Locale.ENGLISH,"%d/%d/%d",
+                event.getStartTime().get(Calendar.DATE),event.getStartTime().get(Calendar.MONTH),event.getStartTime().get(Calendar.YEAR)%100));
+        Log.e("RECYCLE","event " + position + " " + event.getName());
 
     }
 
@@ -72,6 +78,7 @@ public class QueuesListAdapter extends RecyclerView.Adapter<QueuesListAdapter.Vi
             queueDateTextView = itemView.findViewById(R.id.queue_date);
             queueStartHourTextView = itemView.findViewById(R.id.queue_start_hour);
             queueFinishHourTextView = itemView.findViewById(R.id.queue_finish_hour);
+            queueTypeTextView = itemView.findViewById(R.id.queue_type);
 
 
             itemView.setOnClickListener(this);
@@ -79,13 +86,8 @@ public class QueuesListAdapter extends RecyclerView.Adapter<QueuesListAdapter.Vi
 
         @Override
         public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition(), mData.get(getAdapterPosition()));
         }
-    }
-
-    // convenience method for getting data at click position
-    static WeekViewEvent getItem(int id) {
-        return mData.get(id);
     }
 
     // allows clicks events to be caught
@@ -95,7 +97,7 @@ public class QueuesListAdapter extends RecyclerView.Adapter<QueuesListAdapter.Vi
 
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
-        void onItemClick(View view, int position);
+        void onItemClick(View view, int position, WeekViewEvent event);
     }
 
 }

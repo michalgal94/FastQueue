@@ -72,7 +72,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/queues_list"
         android:layout_width="match_parent"
-        android:layout_height="178dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="60dp">
 
     </androidx.recyclerview.widget.RecyclerView>

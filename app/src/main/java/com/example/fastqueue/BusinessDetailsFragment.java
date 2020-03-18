@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -32,44 +33,36 @@ public class BusinessDetailsFragment extends Fragment {
         if(view == null) {
             view = inflater.inflate(R.layout.activity_business_details_fragment, container, false);
         }
+        final TextView businessName = view.findViewById(R.id.business_name);
+        final TextView businessAddress = view.findViewById(R.id.business_address);
+        final TextView businessEmail = view.findViewById(R.id.email_address);
+        final TextView businessPhone = view.findViewById(R.id.business_phone);
 
         findViews();
+        final MySharedPreferences mySharedPreferences = new MySharedPreferences(getContext());
+        String jsonUserBussiness = mySharedPreferences.getString(Constants.KEY_USER_PREFRENCES, "");
+        final BusinessMan myBussinessman = new Gson().fromJson(jsonUserBussiness, BusinessMan.class);
 
+
+        businessName.setText(myBussinessman.getBusinessName());
+        businessAddress.setText(myBussinessman.getBusinessAddress());
+        businessEmail.setText(myBussinessman.getEmail());
+        businessPhone.setText(myBussinessman.getPhone());
 
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                final MySharedPreferences mySharedPreferences = new MySharedPreferences(getContext());
-//                String jsonUserBussiness = mySharedPreferences.getString(Constants.KEY_USER_PREFRENCES, "");
-//                Log.e("SCEASDSDFSF","GOT JSON: " + jsonUserBussiness);
-//                final BusinessMan myBussinessman = new Gson().fromJson(jsonUserBussiness, BusinessMan.class);
-//
-//
-//                ActivityTime activityTimeSaved = myBussinessman.getActivityTime();
-//                daysEdit.setText(activityTimeSaved.getDays());
-//                tillHourEdit.setText(activityTimeSaved.getUntil_hour());
-//                fromHourEdit.setText(activityTimeSaved.getFrom_hour());
-//                finishEdit.setText(activityTimeSaved.getFinish_date());
-//                startEdit.setText(activityTimeSaved.getStart_date());
-//
-//                btnSubmit.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        ActivityTime activityTime = new ActivityTime(startEdit.getText().toString(),finishEdit.getText().toString(), fromHourEdit.getText().toString(), tillHourEdit.getText().toString(),daysEdit.getText().toString());
-//                        myBussinessman.setActivityTime(activityTime);
-//                        String jsonUserBussinessUpdated = new Gson().toJson(myBussinessman);
-//                        mySharedPreferences.putString(Constants.KEY_USER_PREFRENCES, jsonUserBussinessUpdated);
-//                        MyFirebase.setBusiness(myBussinessman);
-
-
-
-
+                myBussinessman.setBusinessName(businessName.getText().toString());
+                myBussinessman.setBusinessAddress(businessAddress.getText().toString());
+                myBussinessman.setEmail(businessEmail.getText().toString());
+                myBussinessman.setPhone(businessPhone.getText().toString());
+                String jsonUserBussinessUpdated = new Gson().toJson(myBussinessman);
+                mySharedPreferences.putString(Constants.KEY_USER_PREFRENCES, jsonUserBussinessUpdated);
+                MyFirebase.setBusiness(myBussinessman);
+                Toast.makeText(getActivity(),"הפרטים עודכנו בהצלחה!",Toast.LENGTH_SHORT).show();
             }
-
         });
-
         return view;
     }
 

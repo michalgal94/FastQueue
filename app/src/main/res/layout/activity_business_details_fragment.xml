@@ -71,16 +71,7 @@
         android:layout_below="@+id/email_address"/>
 
 
-    <EditText
-        android:id="@+id/business_page"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="קישור לדף העסק"
-        android:layout_marginTop="20dp"
-        android:inputType="text|textWebEditText"
-        android:paddingRight="50dp"
-        android:maxLength="20"
-        android:layout_below="@+id/business_phone"/>
+
 
     <Button
         android:id="@+id/btnSubmit"

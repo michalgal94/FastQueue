@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:parentActivityName="com.example.myfirstapp.MainActivity"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".QueuesListAdapter"></activity>
+        <activity android:name=".QueuesList"></activity>
         <activity android:name=".ClientSchedule" />
         <activity android:name=".NavigationToBusinessPlace" />
         <activity android:name=".ActivityContact" /> <!-- <activity android:name=".PopUpWindowSettings"></activity> -->
