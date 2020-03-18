@@ -1,13 +1,14 @@
 package com.example.fastqueue;
 
 import android.content.Context;
+import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.HashMap;
@@ -17,13 +18,27 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     private static List<Contact> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
-    private Contact contact;
-    private HashMap<String, Boolean> hashMap = new HashMap<>(); // use for tick v
+    private HashMap<String, Boolean> contactMap; // use for tick v
+
+    private void initMap() {
+        this.contactMap = new HashMap<>();
+        for(Contact contact : this.mData) {
+            contactMap.put(contact.getName(), false);
+        }
+    }
+    public HashMap<String, Boolean> getMap() {
+        return this.contactMap;
+    }
+
+    public void setMapValByKey(String contactName, boolean isChecked) {
+        this.contactMap.put(contactName, isChecked);
+    }
 
     // data is passed into the constructor
     ContactListAdapter(Context context, List<Contact> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
+        initMap();
     }
 
     // inflates the row layout from xml when needed
@@ -40,7 +55,15 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         holder.contactNameTextView.setText(contact.getName());
         holder.contactEmailTextView.setText(contact.getEmail());
         holder.contactPhoneTextView.setText(contact.getPhone_number());
-
+        if(!this.contactMap.get(contact.getName())) {
+            holder.contactNameTextView.setTypeface(null, Typeface.NORMAL);
+            holder.contactEmailTextView.setTypeface(null, Typeface.NORMAL);
+            holder.contactPhoneTextView.setTypeface(null, Typeface.NORMAL);
+        } else {
+            holder.contactNameTextView.setTypeface(null, Typeface.BOLD_ITALIC);
+            holder.contactEmailTextView.setTypeface(null, Typeface.BOLD_ITALIC);
+            holder.contactPhoneTextView.setTypeface(null, Typeface.BOLD_ITALIC);
+        }
     }
 
 
@@ -86,15 +109,6 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
         void onItemClick(View view, int position);
-    }
-
-
-
-    public void onCheckboxClicked(View view) {
-        // Is the view now checked?
-        boolean checked = ((CheckBox) view).isChecked();
-        String name = contact.getName();
-        hashMap.put(name, checked);
     }
 
 }

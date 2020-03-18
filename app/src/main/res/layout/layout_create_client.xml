@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/create_client_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="הוספת לקוח חדש"
+        android:textSize="25sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+
+<!--    private String name;-->
+<!--    private String email;-->
+<!--    private String id;-->
+<!--    private String phone_number;-->
+
+    <EditText
+        android:id="@+id/createClient_EDT_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/create_client_title"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:hint="שם לקוח"
+        />
+
+    <EditText
+        android:id="@+id/createClient_EDT_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/createClient_EDT_name"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:hint="מספר טלפון"
+
+        />
+
+    <EditText
+        android:id="@+id/createClient_EDT_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/createClient_EDT_phone"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:hint="אימייל (אופציונאלי)"
+        />
+
+    <Button
+        android:id="@+id/createClient_BTN_addClient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="הוסף"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/createClient_EDT_email"
+        android:layout_marginTop="15dp"
+        />
+
+</RelativeLayout>

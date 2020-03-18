@@ -1,5 +1,7 @@
 package com.example.fastqueue;
 
+import com.alamkanak.weekview.WeekViewEvent;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +12,8 @@ public class BusinessMan extends User {
     private String businessAddress;
     private ActivityTime activityTime;
     private List<Type> types;
+    private ArrayList<Contact> clientsList;
+    private ArrayList<WeekViewEvent> eventsList;
 
     public BusinessMan() {
     }
@@ -20,6 +24,9 @@ public class BusinessMan extends User {
         setBusinessAddress(businessAddress);
         setActivityTime(new ActivityTime("", "", "", "", ""));
         types = new ArrayList<>();
+        setClientsList(new ArrayList<Contact>());
+        setEventsList(new ArrayList<WeekViewEvent>());
+
     }
 
     @Override
@@ -113,6 +120,20 @@ public class BusinessMan extends User {
         this.types.addAll(Arrays.asList(types));
     }
 
+    public ArrayList<Contact> getClientsList() {
+        return clientsList;
+    }
+
+    public void setClientsList(ArrayList<Contact> clientsList) {
+        this.clientsList = clientsList;
+    }
 
 
+    public ArrayList<WeekViewEvent> getEventsList() {
+        return eventsList;
+    }
+
+    public void setEventsList(ArrayList<WeekViewEvent> eventsList) {
+        this.eventsList = eventsList;
+    }
 }

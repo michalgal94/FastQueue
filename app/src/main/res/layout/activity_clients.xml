@@ -42,6 +42,7 @@
 
 
     <ImageView
+        android:id="@+id/add_client_BTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_new"
@@ -51,6 +52,7 @@
         android:layout_marginTop="30dp"/>
 
     <ImageView
+        android:id="@+id/remove_client_BTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_erase"
@@ -58,17 +60,14 @@
         android:layout_marginStart="90dp"
         android:layout_marginTop="30dp"/>
 
-    <ListView
-        android:id="@+id/clients_list"
-        android:divider="?android:dividerHorizontal"
-        android:dividerHeight="1dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/clients_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="220dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/remove_client_BTN"
+        android:layout_marginTop="20dp" >
 
-        />
-
-
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 

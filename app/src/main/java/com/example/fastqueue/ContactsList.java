@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -29,9 +30,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ContactsList extends AppCompatActivity {
@@ -39,11 +43,24 @@ public class ContactsList extends AppCompatActivity {
     private boolean hasContactsPremission;
     private RecyclerView contactListRecycleView;
     private ContactListAdapter adapter;
+    private ArrayList<Contact> contactsToClientsList;
+
+    private Button add_to_clients_list_BTN;
+    private BusinessMan myBusinessman;
+
+    private MySharedPreferences mySharedPreferences;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view_contacts);
+
+        mySharedPreferences = new MySharedPreferences(this);
+
+        add_to_clients_list_BTN = findViewById(R.id.add_to_clients_list_BTN);
+        contactsToClientsList = new ArrayList<>();
+
+        myBusinessman = new Gson().fromJson(mySharedPreferences.getString(Constants.KEY_USER_PREFRENCES, ""), BusinessMan.class);
 
         if (getApplicationContext().checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, 111);
@@ -64,14 +81,32 @@ public class ContactsList extends AppCompatActivity {
 
         }
 
+        add_to_clients_list_BTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                add contacts to business.
+                myBusinessman.setClientsList(contactsToClientsList);
+
+                String jsonUserBussinessUpdated = new Gson().toJson(myBusinessman);
+                mySharedPreferences.putString(Constants.KEY_USER_PREFRENCES, jsonUserBussinessUpdated);
+                MyFirebase.setBusiness(myBusinessman);
+            }
+        });
 
     }
+
 
     private ContactListAdapter.ItemClickListener itemClickListener = new ContactListAdapter.ItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
             Contact contact = ContactListAdapter.getItem(position);
-            //Todo
+            adapter.setMapValByKey(contact.getName(), !adapter.getMap().get(contact.getName()));
+            adapter.notifyItemChanged(position);
+            if(adapter.getMap().get(contact.getName())) {
+                contactsToClientsList.add(contact);
+            } else {
+                contactsToClientsList.remove(contact);
+            }
         }
     };
 

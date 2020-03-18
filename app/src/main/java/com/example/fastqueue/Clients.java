@@ -1,16 +1,135 @@
 package com.example.fastqueue;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.google.android.gms.common.api.Api;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
 
 public class Clients extends AppCompatActivity {
+
+    private MySharedPreferences mySharedPreferences;
+    private BusinessMan myBusinessMan;
+
+    private RecyclerView contactListRecycleView;
+    private ContactListAdapter adapter;
+    private ArrayList<Contact> clientsPicked;
+
+    private ImageView remove_client_BTN;
+    private ImageView add_client_BTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clients);
 
+        remove_client_BTN = findViewById(R.id.remove_client_BTN);
+        add_client_BTN = findViewById(R.id.add_client_BTN);
 
+        mySharedPreferences = new MySharedPreferences(this);
+        myBusinessMan = new Gson().fromJson(mySharedPreferences.getString(Constants.KEY_USER_PREFRENCES, ""), BusinessMan.class);
+
+        clientsPicked = new ArrayList<Contact>();
+        contactListRecycleView = findViewById(R.id.clients_view);
+        contactListRecycleView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new ContactListAdapter(this, myBusinessMan.getClientsList());
+        adapter.setClickListener(itemClickListener);
+        contactListRecycleView.setAdapter(adapter);
+
+        add_client_BTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CreateNewClientDialog createNewClientDialog = new CreateNewClientDialog();
+                createNewClientDialog.show(getSupportFragmentManager(), "create new client dialog");
+            }
+        });
+
+        remove_client_BTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteClientsWithAlert();
+                //refreshRecycler();
+            }
+        });
+
+
+    }
+
+    private void refreshRecycler() {
+//        synchronized (contactListRecycleView) {
+//            contactListRecycleView.notifyAll();
+//        }
+
+//        int removeIndex = 0;
+//        myClients.remove(removeIndex);
+//        adapter.notifyItemRemoved(removeIndex);
+
+//        contactListRecycleView.setAdapter(adapter);
+//        synchronized (adapter) {
+//            adapter.notifyDataSetChanged();
+//        }
+
+        //        synchronized (adapter) {
+////            adapter.notifyAll();
+//            adapter.notifyDataSetChanged();
+//        }
+    }
+
+    private void deleteClientsWithAlert() {
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("מחיקת לקוחות")
+                .setMessage("האם אתה בטוח שברצונך למחוק?")
+                .setPositiveButton("אישור", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ArrayList<Contact> myClients = myBusinessMan.getClientsList();
+                        myClients.removeAll(clientsPicked);
+
+                        String businessJson = new Gson().toJson(myBusinessMan);
+                        mySharedPreferences.putString(Constants.KEY_USER_PREFRENCES, businessJson);
+                        MyFirebase.setBusiness(myBusinessMan);
+
+                        clientsPicked.clear();
+                        adapter.notifyDataSetChanged();
+
+
+                    }
+                })
+                .setNegativeButton("ביטול", null)
+                .create();
+        dialog.show();
+    }
+
+    private ContactListAdapter.ItemClickListener itemClickListener = new ContactListAdapter.ItemClickListener() {
+        @Override
+        public void onItemClick(View view, int position) {
+            Contact contact = ContactListAdapter.getItem(position);
+            adapter.setMapValByKey(contact.getName(), !adapter.getMap().get(contact.getName()));
+            adapter.notifyItemChanged(position);
+            if(adapter.getMap().get(contact.getName())) {
+                clientsPicked.add(contact);
+            } else {
+                clientsPicked.remove(contact);
+            }
+        }
+    };
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent backIntent = new Intent(Clients.this,MenuActivityBusiness.class);
+        startActivity(backIntent);
+        Clients.this.finish();
     }
 }

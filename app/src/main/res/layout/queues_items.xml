@@ -1,40 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-    <LinearLayout
-        android:id = "@+id/relativeLayout1"
-        android:layout_width = "fill_parent"
-        android:layout_height = "wrap_content"
-        android:background="@color/colorPrimary"
-        >
-
         <TextView
-            android:id = "@+id/type"
+            android:id = "@+id/queue_type"
             android:layout_width = "0dp"
             android:layout_height = "wrap_content"
             android:layout_weight = "1"
             android:gravity = "center"
             android:padding = "5dp"
-            android:text = "סוג תור"
+            android:text="סוג התור"
             android:textSize="16dp"
-            android:textColor = "#ffffff" />
+            />
 
         <TextView
-            android:id = "@+id/finish_hour"
+            android:id = "@+id/queue_finish_hour"
             android:layout_width = "0dp"
             android:layout_height = "wrap_content"
             android:layout_weight = "1"
             android:gravity = "center"
             android:padding = "5dp"
-            android:textSize="16dp"
-            android:text ="שעת סיום"
-            android:textColor = "#ffffff" />
+            android:text="שעת סיוםר"
+            android:textSize="16dp" />
 
         <TextView
-            android:id = "@+id/start_hour"
+            android:id = "@+id/queue_start_hour"
             android:layout_width = "0dp"
             android:layout_height = "wrap_content"
             android:layout_weight = "1"
@@ -42,10 +34,10 @@
             android:padding = "5dp"
             android:text = "שעת התחלה"
             android:textSize="16dp"
-            android:textColor = "#ffffff"/>
+            />
 
         <TextView
-            android:id = "@+id/start_date"
+            android:id = "@+id/queue_date"
             android:layout_width = "0dp"
             android:layout_height = "wrap_content"
             android:layout_weight = "1"
@@ -53,10 +45,10 @@
             android:padding = "5dp"
             android:textSize="16dp"
             android:text = "תאריך"
-            android:textColor = "#ffffff" />
+            />
 
         <TextView
-            android:id = "@+id/name"
+            android:id = "@+id/queue_creater_name"
             android:layout_width = "10dp"
             android:layout_height = "wrap_content"
             android:layout_weight = "1"
@@ -64,18 +56,8 @@
             android:padding = "5dp"
             android:textSize="16dp"
             android:text = "שם"
-            android:textColor="#ffffff"/>
+            />
 
 
-    </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/queues_list"
-        android:layout_width="match_parent"
-        android:layout_height="178dp"
-        android:layout_marginTop="60dp">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-
-</RelativeLayout>
+</LinearLayout>
