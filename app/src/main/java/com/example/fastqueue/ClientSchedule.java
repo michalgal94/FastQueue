@@ -162,9 +162,6 @@ public class ClientSchedule extends AppCompatActivity {
 //        });
 
 
-        //TODO: cancel event
-        //TODO: update after event add
-
         mWeekView.setMonthChangeListener(new MonthLoader.MonthChangeListener() {
             @Override
             public List<WeekViewEvent> onMonthChange(int newYear, int newMonth) {
