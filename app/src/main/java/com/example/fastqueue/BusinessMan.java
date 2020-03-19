@@ -136,4 +136,8 @@ public class BusinessMan extends User {
     public void setEventsList(ArrayList<WeekViewEvent> eventsList) {
         this.eventsList = eventsList;
     }
+
+    public void addClient(Contact contact) {
+        getClientsList().add(contact);
+    }
 }

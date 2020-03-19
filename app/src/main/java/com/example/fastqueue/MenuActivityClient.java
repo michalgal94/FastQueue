@@ -15,7 +15,8 @@ public class MenuActivityClient extends AppCompatActivity {
 
     private CardView contact_card;
     private CardView waze_card;
-    private CardView create_queue;
+    private CardView create_queue_card;
+    private CardView support_card;
     private MySharedPreferences mySharedPreferences;
 
     @Override
@@ -30,7 +31,9 @@ public class MenuActivityClient extends AppCompatActivity {
 
         contact_card = findViewById(R.id.contact_card);
         waze_card = findViewById(R.id.waze_card);
-        create_queue = findViewById(R.id.create_queue);
+        create_queue_card = findViewById(R.id.create_queue_card);
+        support_card = findViewById(R.id.support_card);
+
 
         contact_card.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +60,7 @@ public class MenuActivityClient extends AppCompatActivity {
         });
 
 
-        create_queue.setOnClickListener(new View.OnClickListener() {
+        create_queue_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MenuActivityClient.this, ClientSchedule.class);
@@ -67,7 +70,23 @@ public class MenuActivityClient extends AppCompatActivity {
             }
         });
 
+       support_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendWhatsappMessege();
+            }
+        });
+
     }
+
+    private void sendWhatsappMessege() {
+        Uri uri = Uri.parse("smsto:" + "0504896023");
+        Intent intent = new Intent(Intent.ACTION_SENDTO , uri);
+        intent.setPackage("com.whatsapp");
+        startActivity(Intent.createChooser(intent, ""));
+
+    }
+
 
 
     public void onBackPressed() {

@@ -27,6 +27,8 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:hint="שם לקוח"
+        android:maxLines="1"
+        android:inputType="textPersonName"
         />
 
     <EditText
@@ -35,6 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/createClient_EDT_name"
         android:layout_marginTop="20dp"
+        android:maxLines="1"
+        android:inputType="text"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:hint="מספר טלפון"
@@ -45,6 +49,8 @@
         android:id="@+id/createClient_EDT_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="textEmailAddress"
         android:layout_below="@+id/createClient_EDT_phone"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
@@ -52,14 +58,6 @@
         android:hint="אימייל (אופציונאלי)"
         />
 
-    <Button
-        android:id="@+id/createClient_BTN_addClient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="הוסף"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/createClient_EDT_email"
-        android:layout_marginTop="15dp"
-        />
+
 
 </RelativeLayout>

@@ -4,8 +4,10 @@ package com.example.fastqueue;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -31,10 +33,15 @@ public class CreateNewClientDialog extends AppCompatDialogFragment {
     private EditText createClient_EDT_name;
     private EditText createClient_EDT_phone;
     private EditText createClient_EDT_email;
-    private boolean goodInput;
 
     private MySharedPreferences mySharedPreferences;
     private BusinessMan myBusinessMan;
+
+    private CallBack_ClientAdded callBack_clientAdded;
+
+    public void setCallBack_clientAdded(CallBack_ClientAdded callBack_clientAdded) {
+        this.callBack_clientAdded = callBack_clientAdded;
+    }
 
     @NonNull
     @Override
@@ -42,49 +49,77 @@ public class CreateNewClientDialog extends AppCompatDialogFragment {
         mySharedPreferences = new MySharedPreferences(getActivity());
         myBusinessMan = new Gson().fromJson(mySharedPreferences.getString(Constants.KEY_USER_PREFRENCES, ""), BusinessMan.class);
 
-        createClient_EDT_name = getActivity().findViewById(R.id.createClient_EDT_name);
-        createClient_EDT_phone = getActivity().findViewById(R.id.createClient_EDT_phone);
-        createClient_EDT_email = getActivity().findViewById(R.id.createClient_EDT_email);
-        goodInput = false;
 //        createClient_BTN_addClient = getActivity().findViewById(R.id.createClient_BTN_addClient);
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View cutomProfileMsg = inflater.inflate(R.layout.activity_create_client, null);
 
+
         AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
         dialog.setView(cutomProfileMsg)
-                .setPositiveButton("אישור", positiveButtonListener)
-                .setNegativeButton("סגור", null)
-                .show();
+                .setPositiveButton("אישור", null)
+                .setNegativeButton("סגור", null);
 
         return dialog.create();
     }
 
-    public DialogInterface.OnClickListener positiveButtonListener = new DialogInterface.OnClickListener() {
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        final AlertDialog dialog = (AlertDialog) getDialog();
+        if(dialog != null) {
+            Button positiveButton = dialog.getButton(Dialog.BUTTON_POSITIVE);
+            positiveButton.setOnClickListener(clickListener);
+        }
+    }
+
+    private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
-        public void onClick(DialogInterface dialogInterface, int i) {
+        public void onClick(View v) {
             String clientName = "";
             String clientPhone = "";
             String clientEmail = "";
-            clientName = createClient_EDT_name.getText().toString();
-            clientPhone = createClient_EDT_phone.getText().toString();
-            clientEmail = createClient_EDT_email.getText().toString();
-            if (!(clientName.trim().equals("") && clientPhone.trim().equals(""))) {
-                createClient_EDT_name.setError("יש להכניס שם לקוח");
-                createClient_EDT_phone.setError("יש להכניס טלפון לקוח");
-                Toast.makeText(getActivity(), "הכנס שם לקוח וטלפון", Toast.LENGTH_SHORT).show();
-                goodInput = true;
+            boolean nameOk;
+            boolean phoneOk;
+
+            createClient_EDT_name = getDialog().findViewById(R.id.createClient_EDT_name);
+            if(createClient_EDT_name != null) {
+                clientName = createClient_EDT_name.getText().toString();
+            }
+            createClient_EDT_phone = getDialog().findViewById(R.id.createClient_EDT_phone);
+            if(createClient_EDT_phone != null) {
+                clientPhone = createClient_EDT_phone.getText().toString();
+            }
+            createClient_EDT_email = getDialog().findViewById(R.id.createClient_EDT_email);
+            if(createClient_EDT_email != null) {
+                clientEmail = createClient_EDT_email.getText().toString();
             }
 
-            if (goodInput) {
-                Contact contact = new Contact(clientName, clientPhone, "", clientEmail);
-                ArrayList<Contact> tempList = myBusinessMan.getClientsList();
-                tempList.add(contact);
-                myBusinessMan.setClientsList(tempList);
-                mySharedPreferences.putString(Constants.KEY_USER_PREFRENCES, new Gson().toJson(myBusinessMan));
-                MyFirebase.setBusiness(myBusinessMan);
-                goodInput = false;
-                dismiss();
+            if (clientName.trim().equals("")) {
+                nameOk = false;
+                createClient_EDT_name.setError("יש להכניס שם לקוח");
+            } else {
+                nameOk = true;
+            }
+            if(clientPhone.trim().equals("")) {
+                phoneOk = false;
+                createClient_EDT_phone.setError("יש להכניס טלפון לקוח");
+            } else {
+                phoneOk = true;
+            }
+
+            if (nameOk && phoneOk) {
+                Contact contact = new Contact(clientName, clientEmail, "", clientPhone);
+//                ArrayList<Contact> tempList = myBusinessMan.getClientsList();
+//                tempList.add(contact);
+//                myBusinessMan.setClientsList(tempList);
+//                mySharedPreferences.putString(Constants.KEY_USER_PREFRENCES, new Gson().toJson(myBusinessMan));
+//                MyFirebase.setBusiness(myBusinessMan);
+                callBack_clientAdded.clientAdded(contact);
+                getDialog().dismiss();
+            } else {
+                Toast.makeText(getActivity(), "הכנס שם לקוח וטלפון", Toast.LENGTH_SHORT).show();
             }
         }
     };

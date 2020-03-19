@@ -59,24 +59,6 @@
         android:text="שלח"
         />
 
-    <ImageView
-        android:id="@+id/whatsapp_support"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/main_BTN_send"
-        android:src="@drawable/ic_whatsapp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="80dp"
-        android:layout_marginTop="30dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="או עבור לתמיכה בוואטסאפ"
-        android:layout_toLeftOf="@+id/whatsapp_support"
-        android:layout_below="@+id/main_BTN_send"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="10dp"/>
 
 
 

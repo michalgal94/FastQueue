@@ -16,7 +16,6 @@ public class ActivityContact extends AppCompatActivity {
     private EditText edit_TXT_name;
     private EditText edit_TXT_number;
     private Button main_BTN_send;
-    private ImageView whatsapp_support;
 
 
     @Override
@@ -27,35 +26,18 @@ public class ActivityContact extends AppCompatActivity {
         edit_TXT_name = findViewById(R.id.edit_TXT_name);
         edit_TXT_number = findViewById(R.id.edit_TXT_number);
         main_BTN_send = findViewById(R.id.main_BTN_send);
-        whatsapp_support = findViewById(R.id.whatsapp_support);
-
 
 
         main_BTN_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"הפרטים נשלחו בהצלחה!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "הפרטים נשלחו בהצלחה!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ActivityContact.this, MenuActivityClient.class);
                 startActivity(intent);
                 ActivityContact.this.finish();
 
             }
         });
-
-        whatsapp_support.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendWhatsappMessege();
-            }
-        });
-
-    }
-
-    private void sendWhatsappMessege() {
-        Uri uri = Uri.parse("smsto:" + "0504896023");
-        Intent intent = new Intent(Intent.ACTION_SENDTO , uri);
-        intent.setPackage("com.whatsapp");
-        startActivity(Intent.createChooser(intent, ""));
 
     }
 

@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +30,7 @@ public class Clients extends AppCompatActivity {
     private RecyclerView contactListRecycleView;
     private ContactListAdapter adapter;
     private ArrayList<Contact> clientsPicked;
-    private boolean goodInput;
+//    private boolean goodInput;
 
     private ImageView remove_client_BTN;
     private ImageView add_client_BTN;
@@ -50,14 +52,12 @@ public class Clients extends AppCompatActivity {
         adapter = new ContactListAdapter(this, myBusinessMan.getClientsList());
         adapter.setClickListener(itemClickListener);
         contactListRecycleView.setAdapter(adapter);
-        goodInput = false;
+//        goodInput = false;
 
         add_client_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                CreateNewClientDialog createNewClientDialog = new CreateNewClientDialog();
-                createNewClientDialog.show(getSupportFragmentManager(), "create new client dialog");
+                callCreateNewClientDialog();
             }
         });
 
@@ -72,25 +72,26 @@ public class Clients extends AppCompatActivity {
 
     }
 
-    private void refreshRecycler() {
-//        synchronized (contactListRecycleView) {
-//            contactListRecycleView.notifyAll();
-//        }
+    private void callCreateNewClientDialog() {
+        CreateNewClientDialog createNewClientDialog = new CreateNewClientDialog();
+        createNewClientDialog.show(getSupportFragmentManager(), "create new client dialog");
+        createNewClientDialog.setCallBack_clientAdded(new CallBack_ClientAdded() {
+            @Override
+            public void clientAdded(Contact contact) {
+                ArrayList<Contact> myClients = myBusinessMan.getClientsList();
+                myClients.add(contact);
+                myBusinessMan.setClientsList(myClients);
 
-//        int removeIndex = 0;
-//        myClients.remove(removeIndex);
-//        adapter.notifyItemRemoved(removeIndex);
+                String businessJson = new Gson().toJson(myBusinessMan);
+                mySharedPreferences.putString(Constants.KEY_USER_PREFRENCES, businessJson);
+                MyFirebase.setBusiness(myBusinessMan);
 
-//        contactListRecycleView.setAdapter(adapter);
-//        synchronized (adapter) {
-//            adapter.notifyDataSetChanged();
-//        }
-
-        //        synchronized (adapter) {
-////            adapter.notifyAll();
-//            adapter.notifyDataSetChanged();
-//        }
+                adapter.setMapValByKey(contact.getName(), false);
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
+
 
     private void deleteClientsWithAlert() {
         AlertDialog dialog = new AlertDialog.Builder(this)
@@ -101,6 +102,7 @@ public class Clients extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         ArrayList<Contact> myClients = myBusinessMan.getClientsList();
                         myClients.removeAll(clientsPicked);
+                        myBusinessMan.setClientsList(myClients);
 
                         String businessJson = new Gson().toJson(myBusinessMan);
                         mySharedPreferences.putString(Constants.KEY_USER_PREFRENCES, businessJson);

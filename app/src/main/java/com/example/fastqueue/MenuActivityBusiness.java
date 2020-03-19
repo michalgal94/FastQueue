@@ -12,7 +12,6 @@ public class MenuActivityBusiness extends AppCompatActivity {
     private CardView clients_card;
     private CardView schedule_card;
     private CardView import_card;
-    private CardView confirm_card;
     private CardView todays_queues_card;
     private CardView activity_card;
     private CardView settings_card;
@@ -27,11 +26,9 @@ public class MenuActivityBusiness extends AppCompatActivity {
         clients_card = findViewById(R.id.clients_card);
         schedule_card = findViewById(R.id.schedule_card);
         import_card =findViewById(R.id.import_card);
-        confirm_card = findViewById(R.id.confirm_card);
         todays_queues_card= findViewById(R.id.todays_queues_card);
         activity_card = findViewById(R.id.activity_card);
         settings_card= findViewById(R.id.settings_card);
-        //hold_card = findViewById(R.id.hold_card);
 
 
 //        menu_bar = findViewById(R.id.menu_bar);
