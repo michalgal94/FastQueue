@@ -41,16 +41,11 @@ public class TodaysQueuesList extends AppCompatActivity {
             MyFirebase.getEvents(new MyFirebase.Callback_EventsReady() {
                 @Override
                 public void eventsReady(List<WeekViewEvent> newEvents) {
-
-                    List<WeekViewEvent> todaysEvents = new ArrayList<>();
-                    List<WeekViewEvent> others = new ArrayList<>();
-
-                    for(WeekViewEvent oevent : others)
-                        for(WeekViewEvent tevent : todaysEvents)
-
-                        if(!dayEquals(oevent.getStartTime(),tevent.getStartTime()))
-                        newEvents.remove(oevent);
-                        newEvents.addAll(todaysEvents);
+                    List<WeekViewEvent> todayEvents = new ArrayList<>();
+                    Calendar today = Calendar.getInstance();
+                    for(WeekViewEvent event : newEvents)
+                        if(dayEquals(event.getStartTime(),today))
+                                todayEvents.add(event);
 
                     Collections.sort(newEvents, new Comparator<WeekViewEvent>() {
                         @Override
@@ -81,12 +76,12 @@ public class TodaysQueuesList extends AppCompatActivity {
                     return true;
                 int aDay = a.get(Calendar.DAY_OF_YEAR);
                 int bDay = b.get(Calendar.DAY_OF_YEAR);
-                int aHour = a.get(Calendar.HOUR_OF_DAY);
-                int bHour = b.get(Calendar.HOUR_OF_DAY);
+                int aYear = a.get(Calendar.YEAR);
+                int bYear = b.get(Calendar.YEAR);
 
                 if (aDay != bDay)
                     return false;
-                return aHour == bHour;
+                return aYear == bYear;
             }
 
     public void onBackPressed() {
