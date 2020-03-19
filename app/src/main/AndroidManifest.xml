@@ -11,6 +11,7 @@
         android:parentActivityName="com.example.myfirstapp.MainActivity"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".QueuesList"></activity>
+        <activity android:name=".TodaysQueuesList"/>
         <activity android:name=".ClientSchedule" />
         <activity android:name=".NavigationToBusinessPlace" />
         <activity android:name=".ActivityContact" /> <!-- <activity android:name=".PopUpWindowSettings"></activity> -->

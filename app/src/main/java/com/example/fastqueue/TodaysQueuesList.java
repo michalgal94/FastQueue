@@ -44,8 +44,12 @@ public class TodaysQueuesList extends AppCompatActivity {
 
                     List<WeekViewEvent> todaysEvents = new ArrayList<>();
                     List<WeekViewEvent> others = new ArrayList<>();
-                    if(!others.get(Calendar.DAY_OF_YEAR).equals(todaysEvents.get(Calendar.DAY_OF_YEAR)))
-                        newEvents.remove(others);
+
+                    for(WeekViewEvent oevent : others)
+                        for(WeekViewEvent tevent : todaysEvents)
+
+                        if(!dayEquals(oevent.getStartTime(),tevent.getStartTime()))
+                        newEvents.remove(oevent);
                         newEvents.addAll(todaysEvents);
 
                     Collections.sort(newEvents, new Comparator<WeekViewEvent>() {
@@ -70,6 +74,20 @@ public class TodaysQueuesList extends AppCompatActivity {
                 }
             });
         }
+
+
+            private static boolean dayEquals(Calendar a, Calendar b) {
+                if (a.equals(b))
+                    return true;
+                int aDay = a.get(Calendar.DAY_OF_YEAR);
+                int bDay = b.get(Calendar.DAY_OF_YEAR);
+                int aHour = a.get(Calendar.HOUR_OF_DAY);
+                int bHour = b.get(Calendar.HOUR_OF_DAY);
+
+                if (aDay != bDay)
+                    return false;
+                return aHour == bHour;
+            }
 
     public void onBackPressed() {
         super.onBackPressed();
