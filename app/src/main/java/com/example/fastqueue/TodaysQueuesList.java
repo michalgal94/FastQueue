@@ -24,7 +24,7 @@ public class TodaysQueuesList extends AppCompatActivity {
 
 
         private RecyclerView todaysQueuesListRecycleView;
-        private QueuesListAdapter adapter;
+        private TodaysQueuesAdapter adapter;
         private Context context;
 
 
@@ -53,8 +53,8 @@ public class TodaysQueuesList extends AppCompatActivity {
                             return o1.getStartTime().compareTo(o2.getStartTime());
                         }
                     });
-                    adapter = new QueuesListAdapter(context, newEvents);
-                    adapter.setClickListener(new QueuesListAdapter.ItemClickListener() {
+                    adapter = new TodaysQueuesAdapter(context, newEvents);
+                    adapter.setClickListener(new TodaysQueuesAdapter.ItemClickListener() {
                         @Override
                         public void onItemClick(View view, int position, WeekViewEvent event) {
 
