@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class ActivityContact extends AppCompatActivity {
 
@@ -33,6 +34,7 @@ public class ActivityContact extends AppCompatActivity {
         main_BTN_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),"הפרטים נשלחו בהצלחה!",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ActivityContact.this, MenuActivityClient.class);
                 startActivity(intent);
                 ActivityContact.this.finish();

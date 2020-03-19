@@ -57,7 +57,7 @@ public class Login extends AppCompatActivity {
                 MyFirebase.getUsers(new CallBack_UsersReady() {
                     @Override
                     public void usersReady(ArrayList<User> users) {
-                        Toast.makeText(getApplicationContext(),"Users Ready " + users.size(),Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(),"Users Ready " + users.size(),Toast.LENGTH_SHORT).show();
                         boolean userDetected = false;
                         for(final User user : users) {
                             String phoneEntered = edit_TXT_phone.getText().toString();
