@@ -102,6 +102,16 @@ public class MenuActivityBusiness extends AppCompatActivity {
             }
         });
 
+        todays_queues_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivityBusiness.this, TodaysQueuesList.class);
+                startActivity(intent);
+                MenuActivityBusiness.this.finish();
+
+            }
+        });
+
 
     }
 

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id = "@+id/queue_type"
+        android:layout_width = "0dp"
+        android:layout_height = "wrap_content"
+        android:layout_weight = "1"
+        android:gravity = "center"
+        android:padding = "5dp"
+        android:text="סוג התור"
+        android:textSize="16dp"
+        />
+
+    <TextView
+        android:id = "@+id/queue_finish_hour"
+        android:layout_width = "0dp"
+        android:layout_height = "wrap_content"
+        android:layout_weight = "1"
+        android:gravity = "center"
+        android:padding = "5dp"
+        android:text="שעת סיוםר"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id = "@+id/queue_start_hour"
+        android:layout_width = "0dp"
+        android:layout_height = "wrap_content"
+        android:layout_weight = "1"
+        android:gravity = "center"
+        android:padding = "5dp"
+        android:text = "שעת התחלה"
+        android:textSize="16dp"
+        />
+
+    <TextView
+        android:id = "@+id/queue_date"
+        android:layout_width = "0dp"
+        android:layout_height = "wrap_content"
+        android:layout_weight = "1"
+        android:gravity = "center"
+        android:padding = "5dp"
+        android:textSize="16dp"
+        android:text = "תאריך"
+        />
+
+    <TextView
+        android:id = "@+id/queue_creater_name"
+        android:layout_width = "10dp"
+        android:layout_height = "wrap_content"
+        android:layout_weight = "1"
+        android:gravity = "center"
+        android:padding = "5dp"
+        android:textSize="16dp"
+        android:text = "שם"
+        />
+
+
+
+</LinearLayout>

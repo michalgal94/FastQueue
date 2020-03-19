@@ -38,8 +38,6 @@ import java.util.Queue;
 
 public class QueuesList extends AppCompatActivity {
 
-    //Todo list of all the queues created
-
     private RecyclerView queuesListRecycleView;
     private QueuesListAdapter adapter;
     private Context context;
@@ -90,40 +88,3 @@ public class QueuesList extends AppCompatActivity {
 }
 
 
-//        queuesListRecycleView = view.findViewById(R.id.fragList_RCLV_queues);
-//        Context context = inflater.getContext();
-//        Log.d("vvvCon", "Context: " + context);
-//        queuesListRecycleView.setLayoutManager(new LinearLayoutManager(inflater.getContext()));
-//        adapter = new QueuesListAdapter(inflater.getContext());
-//        adapter.setClickListener(itemClickListener);
-//        scoreListRecycleView.setAdapter(adapter);
-//
-//        findViews(view);
-//
-
-
-
-//        nameEdit.setText(event.getName());
-//        startEdit.setText(event.getStartTime());
-//        endEdit.setText(event.getEndTime());
-
-
-//        MyFirebase.getEvents(new Callback_EventsReady() {
-//            @Override
-//            public void eventsReady(List<WeekViewEvent> e) {
-//                events.addAll(e);
-//                for(WeekViewEvent ev : events){
-//
-//                    start_hour.setText(ev.getStartTime().get(Calendar.HOUR_OF_DAY));
-//                    finish_hour.setText(ev.getEndTime().get(Calendar.HOUR_OF_DAY));
-////                    //Todo
-////
-//                }
-//            }
-////
-//            @Override
-//            public void onError() {
-//
-//            }
-//        });
-//

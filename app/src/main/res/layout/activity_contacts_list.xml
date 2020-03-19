@@ -5,15 +5,21 @@
     android:orientation="vertical">
 
 
-    <TextView
+    <ImageView
         android:id="@+id/contact_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="15dp"
-        android:text="יבוא אנשי קשר"
-        android:layout_marginRight="10dp"
-        android:textSize="25sp" />
+        android:src="@drawable/ic_import_title"/>
+
+<!--    <TextView-->
+<!--        android:id="@+id/contact_title"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:text="יבוא אנשי קשר"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:textSize="25sp" />-->
 
     <TextView
         android:id="@+id/click_to_add_TXT"

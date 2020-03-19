@@ -1,30 +1,16 @@
 package com.example.fastqueue;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.database.MatrixCursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.util.Log;
-import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -32,11 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class ContactsList extends AppCompatActivity {
 
@@ -53,7 +35,7 @@ public class ContactsList extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_view_contacts);
+        setContentView(R.layout.activity_contacts_list);
 
         mySharedPreferences = new MySharedPreferences(this);
 
