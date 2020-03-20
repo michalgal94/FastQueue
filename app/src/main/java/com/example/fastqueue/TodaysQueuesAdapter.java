@@ -49,7 +49,7 @@ public class TodaysQueuesAdapter extends RecyclerView.Adapter<TodaysQueuesAdapte
         holder.queueStartHourTextView.setText(String.format(Locale.ENGLISH,"%d:00", event.getStartTime().get(Calendar.HOUR_OF_DAY)));
         holder.queueFinishHourTextView.setText(String.format(Locale.ENGLISH,"%d:00", event.getEndTime().get(Calendar.HOUR_OF_DAY)));
         holder.queueDateTextView.setText(String.format(Locale.ENGLISH,"%d/%d/%d",
-                event.getStartTime().get(Calendar.DAY_OF_YEAR),event.getStartTime().get(Calendar.MONTH),event.getStartTime().get(Calendar.YEAR)%100));
+                event.getStartTime().get(Calendar.DATE),event.getStartTime().get(Calendar.MONTH),event.getStartTime().get(Calendar.YEAR)%100));
         Log.e("RECYCLE","event " + position + " " + event.getName());
 
     }

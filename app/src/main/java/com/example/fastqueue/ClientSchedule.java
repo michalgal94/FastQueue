@@ -143,23 +143,11 @@ public class ClientSchedule extends AppCompatActivity {
                             .create();
                     dialog.show();
                 }
+
             }
         });
 
 
-//        final List<WeekViewEvent> listevents = new ArrayList<>();
-//
-//        MyFirebase.getEvents(new Callback_EventsReady() {
-//            @Override
-//            public void eventsReady(List<WeekViewEvent> events) {
-//                listevents.addAll(events);
-//            }
-//
-//            @Override
-//            public void onError() {
-//
-//            }
-//        });
 
 
         mWeekView.setMonthChangeListener(new MonthLoader.MonthChangeListener() {
@@ -173,10 +161,14 @@ public class ClientSchedule extends AppCompatActivity {
                     if(event.getStartTime().get(Calendar.MONTH)+1 == newMonth && event.getStartTime().get(Calendar.YEAR) == newYear)
                         events.add(event);
                 }
-                for(int hour = 0 ; hour < 24 ; hour++){
-                    for(int day = 0 ; day < 28 ; day++){
+
+                final MySharedPreferences mySharedPreferences = new MySharedPreferences(getApplicationContext());
+                String jsonUserBussiness = mySharedPreferences.getString(Constants.KEY_USER_PREFRENCES, "");
+                final BusinessMan myBussinessman = new Gson().fromJson(jsonUserBussiness, BusinessMan.class);
+
+                for(int hour = 7 ; hour < 24 ; hour++) {
+                    for(int day = 0 ; day < 28 ; day++) {
                         Calendar calendar = new GregorianCalendar();
-//                        Calendar calendar = Calendar.getInstance();
                         calendar.set(Calendar.YEAR,newYear);
                         calendar.set(Calendar.MONTH,newMonth-1);
                         calendar.set(Calendar.DAY_OF_MONTH,day);

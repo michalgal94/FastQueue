@@ -86,6 +86,36 @@ public class MyFirebase {
         });
     }
 
+
+    public static void UpdateEvents(final Callback_EventsReady callback_eventsReady){
+        final List<WeekViewEvent> events = new ArrayList<>();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Events");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(!dataSnapshot.exists()){
+                    callback_eventsReady.onError();
+                    return;
+                }
+                Iterable<DataSnapshot> childs = dataSnapshot.getChildren();
+                for(DataSnapshot d : childs) {
+                    WeekViewEvent event = (new Gson().fromJson(d.getValue(String.class), WeekViewEvent.class));
+                    if(event != null)
+                        events.add(event);
+                }
+                callback_eventsReady.eventsReady(events);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                callback_eventsReady.onError();
+            }
+        });
+    }
+
+
+
     public static void getUsers(final CallBack_UsersReady callBack_usersReady) {
         final ArrayList<User> users2 = new ArrayList<>();
         final FirebaseDatabase database = FirebaseDatabase.getInstance();

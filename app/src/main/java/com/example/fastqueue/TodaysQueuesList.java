@@ -53,7 +53,7 @@ public class TodaysQueuesList extends AppCompatActivity {
                             return o1.getStartTime().compareTo(o2.getStartTime());
                         }
                     });
-                    adapter = new TodaysQueuesAdapter(context, newEvents);
+                    adapter = new TodaysQueuesAdapter(context, todayEvents);
                     adapter.setClickListener(new TodaysQueuesAdapter.ItemClickListener() {
                         @Override
                         public void onItemClick(View view, int position, WeekViewEvent event) {

@@ -1,8 +1,12 @@
 package com.example.fastqueue;
 
 import android.app.Dialog;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.RectF;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,10 +20,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
+import com.google.firebase.database.core.Context;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -113,12 +120,14 @@ public class BusinessSchedule extends AppCompatActivity {
 //        calendar.add(Calendar.DAY_OF_YEAR, -7);
         mWeekView.goToDate(calendar);
 
+
         mWeekView.setOnEventClickListener(new WeekView.EventClickListener() {
             @Override
             public void onEventClick(WeekViewEvent event, RectF eventRect) {
                 Log.d("pttt", event.getName());
             }
         });
+
 
         mWeekView.setMonthChangeListener(new MonthLoader.MonthChangeListener() {
             @Override
@@ -132,6 +141,21 @@ public class BusinessSchedule extends AppCompatActivity {
                 return eventList;
             }
         });
+
+
+        MyFirebase.UpdateEvents(new MyFirebase.Callback_EventsReady() {
+            @Override
+            public void eventsReady(List<WeekViewEvent> events) {
+                NotifactionMessege();
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+
+
     }
 
     private void showSettingsDialog() {
@@ -286,6 +310,26 @@ public class BusinessSchedule extends AppCompatActivity {
 
         dialog.show();
     }
+
+
+    public void NotifactionMessege() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setSmallIcon(R.drawable.ic_schedule)
+                .setColor(Color.GRAY)
+                .setContentTitle("נקבע תור חדש")
+                .setContentText("זה הזמן לצאת!")
+                .setDefaults(NotificationCompat.DEFAULT_ALL)
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
+
+        Intent notificationIntent = new Intent(this, BusinessSchedule.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this,0,notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
+
+
+        NotificationManager notifactionManger = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notifactionManger.notify(0,builder.build());
+
+     }
 
     public void onBackPressed() {
         super.onBackPressed();
