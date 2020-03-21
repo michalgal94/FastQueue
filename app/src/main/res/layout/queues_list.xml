@@ -8,7 +8,7 @@
         android:id = "@+id/relativeLayout1"
         android:layout_width = "fill_parent"
         android:layout_height = "wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="#A921C0"
         >
 
         <TextView
@@ -20,6 +20,7 @@
             android:padding = "5dp"
             android:text = "סוג תור"
             android:textSize="16dp"
+            android:fontFamily="@font/gveretlevinalefalefalef"
             android:textColor = "#ffffff" />
 
         <TextView
@@ -31,6 +32,7 @@
             android:padding = "5dp"
             android:textSize="16dp"
             android:text ="שעת סיום"
+            android:fontFamily="@font/gveretlevinalefalefalef"
             android:textColor = "#ffffff" />
 
         <TextView
@@ -42,6 +44,7 @@
             android:padding = "5dp"
             android:text = "שעת התחלה"
             android:textSize="16dp"
+            android:fontFamily="@font/gveretlevinalefalefalef"
             android:textColor = "#ffffff"/>
 
         <TextView
@@ -49,10 +52,10 @@
             android:layout_width = "0dp"
             android:layout_height = "wrap_content"
             android:layout_weight = "1"
-            android:gravity = "center"
             android:padding = "5dp"
             android:textSize="16dp"
             android:text = "תאריך"
+            android:fontFamily="@font/gveretlevinalefalefalef"
             android:textColor = "#ffffff" />
 
         <TextView
@@ -64,6 +67,7 @@
             android:padding = "5dp"
             android:textSize="16dp"
             android:text = "שם"
+            android:fontFamily="@font/gveretlevinalefalefalef"
             android:textColor="#ffffff"/>
 
 

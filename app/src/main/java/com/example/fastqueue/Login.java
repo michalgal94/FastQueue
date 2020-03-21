@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ public class Login extends AppCompatActivity {
    private EditText edit_TXT_phone;
    private EditText edit_TXT_pass;
    private Button main_BTN_login;
-   private Button main_BTN_create;
+   private ImageView main_BTN_create;
 
 
    private MySharedPreferences mySharedPreferences;

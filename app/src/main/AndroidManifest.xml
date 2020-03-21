@@ -13,27 +13,26 @@
         <activity android:name=".QueuesList"></activity>
         <activity android:name=".TodaysQueuesList"/>
         <activity android:name=".ClientSchedule" />
-        <activity android:name=".NavigationToBusinessPlace" />
         <activity android:name=".ActivityContact" /> <!-- <activity android:name=".PopUpWindowSettings"></activity> -->
         <activity android:name=".ApplicationManagementFragment" />
         <activity android:name=".ClientManagemenFragment" />
         <activity android:name=".BusinessDetailsFragment" />
         <activity android:name=".Settings" />
-        <activity android:name=".Clients" />
+        <activity android:name=".ClientsList" />
         <activity android:name=".MenuActivityClient" />
-        <activity android:name=".MenuActivityBusiness"></activity>
-        <activity android:name=".ContactsList" />
-        <activity android:name=".RemindersFragment" />
-        <activity android:name=".SignUpClient" />
-        <activity android:name=".SignUpBusiness" />
-        <activity android:name=".Login">
+        <activity android:name=".MenuActivityBusiness">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".ActivityTimeBusiness" />
+        <activity android:name=".ContactsList" />
+        <activity android:name=".NotificationsFragment" />
+        <activity android:name=".SignUpClient" />
+        <activity android:name=".SignUpBusiness" />
+        <activity android:name=".Login"/>
         <activity android:name=".ChooseOption" />
         <activity android:name=".BusinessSchedule" />
 

@@ -13,22 +13,29 @@
 <!--        android:layout_height="34dp"-->
 <!--        android:entries="@array/details_array" />-->
 
+
     <TextView
         android:id="@+id/business_details_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_height="90dp"
         android:text="פרטי עסק"
-        android:textSize="24sp"
+        android:textSize="30sp"
+        android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/choco"
+        android:textColor="#A921C0"
+        android:gravity="center"
         android:layout_marginTop="20dp"
-        />
+        android:textStyle="bold"/>
+
 
     <EditText
         android:id="@+id/business_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="שם בית העסק"
+        android:fontFamily="@font/gveretlevinalefalefalef"
         android:inputType="text|textPersonName"
         android:paddingRight="50dp"
         android:maxLength="20"
@@ -39,6 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="כתובת"
+        android:fontFamily="@font/gveretlevinalefalefalef"
         android:layout_marginTop="20dp"
         android:inputType="textPostalAddress"
         android:paddingRight="50dp"
@@ -51,6 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="אימייל"
+        android:fontFamily="@font/gveretlevinalefalefalef"
         android:layout_marginTop="20dp"
         android:inputType="textEmailAddress"
         android:paddingRight="50dp"
@@ -64,6 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="טלפון"
+        android:fontFamily="@font/gveretlevinalefalefalef"
         android:inputType="textPhonetic"
         android:layout_marginTop="20dp"
         android:paddingRight="50dp"
@@ -71,16 +81,20 @@
         android:layout_below="@+id/email_address"/>
 
 
-
-
     <Button
         android:id="@+id/btnSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="עדכן"
-        android:layout_marginTop="20dp"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        />
+        android:layout_below="@id/business_phone"
+        android:background="@drawable/rounded_edit_txt"
+        android:text="עדכן"
+        android:fontFamily="@font/gveretlevinalefalefalef"
+        android:backgroundTint="#F9E3FD"
+        android:textColor="#9C27B0"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
 
 </RelativeLayout>

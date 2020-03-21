@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Clients">
+    tools:context=".ClientsList">
 
 
     <ImageView
@@ -12,33 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_clients_title"
-        android:layout_marginStart="40dp"/>
-
-
-<!--    <EditText-->
-<!--        android:id="@+id/search_bar"-->
-<!--        android:layout_width="200dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:hint="חפש איש קשר"-->
-<!--        android:textSize="16dp"-->
-<!--        android:background="@drawable/rounded_edit_txt"-->
-<!--        android:layout_marginTop="150dp"-->
-<!--        android:layout_alignParentRight="true"-->
-<!--        android:layout_marginEnd="60dp">-->
-
-<!--    </EditText>-->
-
-<!--    <Button-->
-<!--        android:id="@+id/find_search_btn"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@id/clients_title"-->
-<!--        android:layout_toLeftOf="@+id/search_bar"-->
-<!--        android:background="@drawable/rounded_edit_txt"-->
-<!--        android:layout_marginStart="40dp"-->
-<!--        android:text="חפש">-->
-
-<!--    </Button>-->
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
 
 
     <ImageView

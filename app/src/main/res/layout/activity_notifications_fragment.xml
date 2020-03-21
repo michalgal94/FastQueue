@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ApplicationManagementFragment">
+    tools:context=".NotificationsFragment">
 
 
 
     <TextView
-        android:id="@+id/management_app_title"
+        android:id="@+id/notification_title"
         android:layout_width="wrap_content"
         android:layout_height="90dp"
-        android:text="ניהול אפליקציה"
+        android:text="התראות"
         android:textSize="30sp"
         android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"
@@ -24,56 +24,79 @@
         android:textStyle="bold"/>
 
 
-    <TextView
-        android:id="@+id/display_holidays"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="הצג חגים"
-        android:textSize="18dp"
-        android:fontFamily="@font/gveretlevinalefalefalef"
-        android:layout_marginTop="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="50dp"
-        android:layout_below="@+id/management_app_title"/>
-
-
-    <Switch
-        android:id="@+id/simpleSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/display_holidays"
-        android:layout_marginRight="150dp"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/management_app_title"
-        android:checked="true"
-        android:textOff="Off"
-        android:textOn="On"/>
-
 
     <TextView
-        android:id="@+id/start_blocking"
+        android:id="@+id/new_queue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="חסימה ערב חג"
+        android:text="תור חדש"
         android:fontFamily="@font/gveretlevinalefalefalef"
+        android:layout_below="@id/notification_title"
         android:textSize="18dp"
         android:layout_marginTop="40dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="50dp"
-        android:layout_below="@+id/display_holidays"/>
-
+        android:layout_marginEnd="60dp"/>
 
     <Switch
         android:id="@+id/simpleSwitch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/display_holidays"
-        android:layout_marginRight="150dp"
         android:layout_marginTop="40dp"
-        android:layout_below="@+id/display_holidays"
+        android:layout_below="@+id/notification_title"
         android:checked="true"
-        android:textOff="Off"
-        android:textOn="On"/>
+        android:layout_marginStart="20dp"
+        android:textOff="off"
+        android:textOn="on"/>
+
+
+    <TextView
+        android:id="@+id/notification_new_queue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/new_queue"
+        android:text=" נקבע לך תור חדש !"
+        android:fontFamily="@font/gveretlevinalefalefalef"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="20dp"/>
+
+
+    <TextView
+        android:id="@+id/time_to_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="זמן לצאת"
+        android:fontFamily="@font/gveretlevinalefalefalef"
+        android:layout_below="@id/notification_new_queue"
+        android:textSize="18dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="60dp"/>
+
+
+    <Switch
+        android:id="@+id/simpleSwitch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notification_new_queue"
+        android:checked="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textOff="off"
+        android:textOn="on"/>
+
+
+
+    <TextView
+        android:id="@+id/notification_time_to_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/time_to_exit"
+        android:text="זה הזמן לצאת ! "
+        android:fontFamily="@font/gveretlevinalefalefalef"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="20dp"/>
 
 
 
@@ -83,7 +106,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/start_blocking"
+        android:layout_below="@id/notification_time_to_exit"
         android:background="@drawable/rounded_edit_txt"
         android:text="עדכן"
         android:fontFamily="@font/gveretlevinalefalefalef"
@@ -91,6 +114,8 @@
         android:textColor="#9C27B0"
         android:textSize="16sp"
         android:textStyle="bold"/>
+
+
 
 
 

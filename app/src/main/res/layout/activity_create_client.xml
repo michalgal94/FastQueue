@@ -3,30 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:id="@+id/create_client_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
         android:text="הוספת לקוח חדש"
-        android:textSize="25sp"
+        android:textSize="40sp"
+        android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"/>
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/gveretlevinalefalefalef"
+        android:textColor="#A921C0"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"/>
 
 
-<!--    private String name;-->
-<!--    private String email;-->
-<!--    private String id;-->
-<!--    private String phone_number;-->
 
     <EditText
         android:id="@+id/createClient_EDT_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/create_client_title"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:hint="שם לקוח"
+        android:fontFamily="@font/gveretlevinalefalefalef"
         android:maxLines="1"
         android:inputType="textPersonName"
         />
@@ -42,6 +45,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:hint="מספר טלפון"
+        android:fontFamily="@font/gveretlevinalefalefalef"
 
         />
 
@@ -56,6 +60,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:hint="אימייל (אופציונאלי)"
+        android:fontFamily="@font/gveretlevinalefalefalef"
         />
 
 

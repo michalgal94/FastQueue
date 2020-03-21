@@ -54,7 +54,7 @@ public class ApplicationManagementFragment extends Fragment {
                 else
                     statusSwitch1 = simpleSwitch1.getTextOff().toString();
 
-                Toast.makeText(getContext(),"Switch:" + statusSwitch + "\n" + "Switch1 :" + statusSwitch1 , Toast.LENGTH_LONG).show(); // display the current state for switch
+                Toast.makeText(getContext(),"Switch:" + statusSwitch + "\n" + "Switch1 :" + statusSwitch1 + "\n" + "השינויים נשמרו בהצלחה !" , Toast.LENGTH_LONG).show(); // display the current state for switch
             }
         });
 

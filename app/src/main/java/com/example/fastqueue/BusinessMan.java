@@ -22,7 +22,7 @@ public class BusinessMan extends User {
         super(username, email, password, verify, phone, isClient);
         setBusinessName(businessName);
         setBusinessAddress(businessAddress);
-        setActivityTime(new ActivityTime("", "", "", "", ""));
+        setActivityTime(new ActivityTime("", "", ""));
         types = new ArrayList<>();
         setClientsList(new ArrayList<Contact>());
         setEventsList(new ArrayList<WeekViewEvent>());

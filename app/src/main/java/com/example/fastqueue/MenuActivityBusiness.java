@@ -58,7 +58,7 @@ public class MenuActivityBusiness extends AppCompatActivity {
         clients_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MenuActivityBusiness.this, Clients.class);
+                Intent intent = new Intent(MenuActivityBusiness.this, ClientsList.class);
                 startActivity(intent);
                 MenuActivityBusiness.this.finish();
 

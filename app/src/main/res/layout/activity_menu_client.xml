@@ -59,10 +59,11 @@
                     android:layout_marginBottom="10dp"
                     android:layout_weight="0.5"
                     android:text="ניווט לבית העסק"
+                    android:fontFamily="@font/choco"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    />
 
 
             </LinearLayout>
@@ -110,14 +111,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="30dp"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="40dp"
                     android:layout_marginBottom="15dp"
                     android:layout_weight="0.5"
                     android:text="צור קשר"
+                    android:fontFamily="@font/choco"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    />
 
 
             </LinearLayout>
@@ -164,15 +166,16 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="15dp"
                     android:layout_weight="0.5"
                     android:text="תמיכה"
+                    android:fontFamily="@font/choco"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    />
 
 
             </LinearLayout>
@@ -223,10 +226,11 @@
                     android:layout_marginBottom="15dp"
                     android:layout_weight="0.5"
                     android:text="קביעת תור"
+                    android:fontFamily="@font/choco"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    />
 
 
             </LinearLayout>

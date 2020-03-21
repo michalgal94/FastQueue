@@ -9,35 +9,48 @@
         android:layout_width="wrap_content"
         android:layout_height="90dp"
         android:text="הירשם בתור"
-        android:textSize="35sp"
+        android:textSize="40sp"
         android:layout_marginBottom="10dp"
-        android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/gveretlevinalefalefalef"
+        android:textColor="#A921C0"
         android:gravity="center"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"/>
 
 
     <Button
         android:id="@+id/businessOption"
         android:layout_width="160dp"
         android:layout_height="80dp"
-        android:layout_below="@+id/main_LBL_sign_up"
-        android:textSize="20dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="false"
         android:layout_marginTop="30dp"
-        android:text="בעל עסק" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/main_LBL_sign_up"
+        android:background="@drawable/rounded_edit_txt"
+        android:text="בעל עסק"
+        android:fontFamily="@font/gveretlevinalefalefalef"
+        android:backgroundTint="#F9E3FD"
+        android:textColor="#9C27B0"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
 
 
     <Button
         android:id="@+id/clientOption"
         android:layout_width="160dp"
         android:layout_height="80dp"
-        android:layout_below="@+id/businessOption"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="false"
-        android:textSize="20dp"
         android:layout_marginTop="30dp"
-        android:text="לקוח" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/businessOption"
+        android:background="@drawable/rounded_edit_txt"
+        android:text="לקוח"
+        android:fontFamily="@font/gveretlevinalefalefalef"
+        android:backgroundTint="#F9E3FD"
+        android:textColor="#9C27B0"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
 
 </RelativeLayout>

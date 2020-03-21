@@ -40,7 +40,7 @@ public class BusinessSchedule extends AppCompatActivity {
     private ImageView settings_BTN;
     private ImageView open_hours;
     private ImageView type_of_queue;
-    private Button set_date_BTN;
+    private ImageView set_date_BTN;
     private WeekView mWeekView;
 
 
@@ -54,7 +54,7 @@ public class BusinessSchedule extends AppCompatActivity {
         set_date_BTN =findViewById(R.id.set_date_BTN);
 
         final List<WeekViewEvent> events = new ArrayList<>();
-        MyFirebase.getEvents(new MyFirebase.Callback_EventsReady() {
+        MyFirebase.getEvents(new Callback_EventsReady() {
             @Override
             public void eventsReady(List<WeekViewEvent> e) {
                 events.clear();
@@ -143,7 +143,7 @@ public class BusinessSchedule extends AppCompatActivity {
         });
 
 
-        MyFirebase.UpdateEvents(new MyFirebase.Callback_EventsReady() {
+        MyFirebase.UpdateEvents(new Callback_EventsReady() {
             @Override
             public void eventsReady(List<WeekViewEvent> events) {
                 NotifactionMessege();
@@ -281,22 +281,19 @@ public class BusinessSchedule extends AppCompatActivity {
         final BusinessMan myBussinessman = new Gson().fromJson(jsonUserBussiness, BusinessMan.class);
         Button btnSubmit = v.findViewById(R.id.btnSubmit);
         final EditText daysEdit = v.findViewById(R.id.edit_days);
-        final EditText tillHourEdit = v.findViewById(R.id.edit_till_hour);
-        final EditText fromHourEdit = v.findViewById(R.id.edit_from_hour);
-        final EditText finishEdit = v.findViewById(R.id.edit_finish);
-        final EditText startEdit = v.findViewById(R.id.edit_start);
+        final EditText tillHourEdit = v.findViewById(R.id.edit_finish_hour);
+        final EditText fromHourEdit = v.findViewById(R.id.edit_start_hour);
+
 
         ActivityTime activityTimeSaved = myBussinessman.getActivityTime();
         daysEdit.setText(activityTimeSaved.getDays());
         tillHourEdit.setText(activityTimeSaved.getUntil_hour());
         fromHourEdit.setText(activityTimeSaved.getFrom_hour());
-        finishEdit.setText(activityTimeSaved.getFinish_date());
-        startEdit.setText(activityTimeSaved.getStart_date());
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ActivityTime activityTime = new ActivityTime(startEdit.getText().toString(),finishEdit.getText().toString(), fromHourEdit.getText().toString(), tillHourEdit.getText().toString(),daysEdit.getText().toString());
+                ActivityTime activityTime = new ActivityTime(fromHourEdit.getText().toString(), tillHourEdit.getText().toString(),daysEdit.getText().toString());
                 myBussinessman.setActivityTime(activityTime);
                 String jsonUserBussinessUpdated = new Gson().toJson(myBussinessman);
                 mySharedPreferences.putString(Constants.KEY_USER_PREFRENCES, jsonUserBussinessUpdated);

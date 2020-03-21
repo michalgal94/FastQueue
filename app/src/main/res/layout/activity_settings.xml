@@ -16,7 +16,7 @@
         android:src="@drawable/ic_settings_title"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         />
 
     <FrameLayout
@@ -42,29 +42,62 @@
             android:id="@+id/settings_BTN_app_manage"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:background="@drawable/rounded_edit_txt"
+            android:layout_marginTop="20dp"
             android:text="ניהול אפליקציה"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:fontFamily="@font/gveretlevinalefalefalef"
+            android:backgroundTint="#F9E3FD"
+            android:textColor="#9C27B0"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
 
         <Button
-            android:id="@+id/settings_BTN_reminders"
+            android:id="@+id/settings_BTN_notifications"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="תזכורות"
-            android:layout_weight="1"/>
+            android:background="@drawable/rounded_edit_txt"
+            android:layout_marginTop="20dp"
+            android:text="התראות"
+            android:layout_weight="1"
+            android:fontFamily="@font/gveretlevinalefalefalef"
+            android:backgroundTint="#F9E3FD"
+            android:textColor="#9C27B0"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+
 
         <Button
             android:id="@+id/settings_BTN_client_manage"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:background="@drawable/rounded_edit_txt"
+            android:layout_marginTop="20dp"
             android:text="ניהול לקוחות"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:fontFamily="@font/gveretlevinalefalefalef"
+            android:backgroundTint="#F9E3FD"
+            android:textColor="#9C27B0"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+
 
         <Button
             android:id="@+id/setting_BTN_business_details"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:background="@drawable/rounded_edit_txt"
+            android:layout_marginTop="20dp"
             android:text="פרטי עסק"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:fontFamily="@font/gveretlevinalefalefalef"
+            android:backgroundTint="#F9E3FD"
+            android:textColor="#9C27B0"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
 
 
     </LinearLayout>

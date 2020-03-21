@@ -6,15 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ClientManagemenFragment">
 
-
     <TextView
         android:id="@+id/management_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
         android:text="ניהול לקוחות"
-        android:layout_marginTop="40dp"
-        android:textSize="24dp"
-        android:layout_centerHorizontal="true"/>
+        android:textSize="30sp"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/choco"
+        android:textColor="#A921C0"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/limit_double_queue"
@@ -22,9 +27,10 @@
         android:layout_height="wrap_content"
         android:text="הגבלת תור כפול"
         android:textSize="18dp"
+        android:fontFamily="@font/gveretlevinalefalefalef"
         android:layout_marginTop="40dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="50dp"
         android:layout_below="@+id/management_title"/>
 
 
@@ -34,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@+id/limit_double_queue"
         android:layout_marginRight="150dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:layout_below="@+id/management_title"
         android:checked="true"
         android:textOff="Off"
@@ -46,31 +52,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="עדיפות לתורים צמודים"
+        android:fontFamily="@font/gveretlevinalefalefalef"
         android:textSize="18dp"
         android:layout_marginTop="40dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="50dp"
         android:layout_below="@id/limit_double_queue"/>
 
     <Switch
         android:id="@+id/Switch2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="true"
-        android:layout_toLeftOf="@+id/limit_double_queue"
-        android:layout_marginRight="150dp"
-        android:layout_marginTop="25dp"
-        android:layout_below="@id/limit_double_queue"/>
+        android:layout_below="@id/limit_double_queue"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="114dp"
+        android:layout_toLeftOf="@+id/joined_queues"
+        android:checked="true" />
 
     <TextView
         android:id="@+id/display_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="הצגת מחיר"
+        android:fontFamily="@font/gveretlevinalefalefalef"
         android:textSize="18dp"
         android:layout_marginTop="40dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="50dp"
         android:layout_below="@id/joined_queues"/>
 
 
@@ -79,48 +87,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/joined_queues"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="150dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="145dp"
         android:layout_toLeftOf="@+id/limit_double_queue"
         android:checked="true"
         android:textOff="Off"
         android:textOn="On" />
 
 
-    <TextView
-        android:id="@+id/waiting_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="רשימת המתנה פעילה"
-        android:textSize="18dp"
-        android:layout_marginTop="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
-        android:layout_below="@id/display_price"/>
-
-
-    <Switch
-        android:id="@+id/Switch4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:textOff="Off"
-        android:textOn="On"
-        android:layout_toLeftOf="@+id/waiting_list"
-        android:layout_marginRight="110dp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/display_price"/>
-
 
 
     <Button
         android:id="@+id/btnSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="עדכן"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/waiting_list"
-        />
+        android:layout_below="@id/display_price"
+        android:background="@drawable/rounded_edit_txt"
+        android:text="עדכן"
+        android:fontFamily="@font/gveretlevinalefalefalef"
+        android:backgroundTint="#F9E3FD"
+        android:textColor="#9C27B0"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
 
 </RelativeLayout>

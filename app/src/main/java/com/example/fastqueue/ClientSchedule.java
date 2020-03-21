@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
@@ -37,7 +38,7 @@ import java.util.function.Predicate;
 public class ClientSchedule extends AppCompatActivity {
 
 
-    private Button set_date_BTN;
+    private ImageView set_date_BTN;
     private WeekView mWeekView;
     private Context context;
     private final List<WeekViewEvent> weekViewEvents = new ArrayList<>();
@@ -73,7 +74,7 @@ public class ClientSchedule extends AppCompatActivity {
         calendar.add(Calendar.DAY_OF_YEAR, -7);
         mWeekView.goToDate(calendar);
 
-        MyFirebase.getEvents(new MyFirebase.Callback_EventsReady() {
+        MyFirebase.getEvents(new Callback_EventsReady() {
             @Override
             public void eventsReady(List<WeekViewEvent> events) {
                 weekViewEvents.clear();
@@ -143,11 +144,8 @@ public class ClientSchedule extends AppCompatActivity {
                             .create();
                     dialog.show();
                 }
-
             }
         });
-
-
 
 
         mWeekView.setMonthChangeListener(new MonthLoader.MonthChangeListener() {
@@ -166,7 +164,7 @@ public class ClientSchedule extends AppCompatActivity {
                 String jsonUserBussiness = mySharedPreferences.getString(Constants.KEY_USER_PREFRENCES, "");
                 final BusinessMan myBussinessman = new Gson().fromJson(jsonUserBussiness, BusinessMan.class);
 
-                for(int hour = 7 ; hour < 24 ; hour++) {
+                for(int hour = 7 ; hour < 19 ; hour++) {
                     for(int day = 0 ; day < 28 ; day++) {
                         Calendar calendar = new GregorianCalendar();
                         calendar.set(Calendar.YEAR,newYear);

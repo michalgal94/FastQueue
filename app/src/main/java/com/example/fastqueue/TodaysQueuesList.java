@@ -38,7 +38,7 @@ public class TodaysQueuesList extends AppCompatActivity {
             context = this;
 
 
-            MyFirebase.getEvents(new MyFirebase.Callback_EventsReady() {
+            MyFirebase.getEvents(new Callback_EventsReady() {
                 @Override
                 public void eventsReady(List<WeekViewEvent> newEvents) {
                     List<WeekViewEvent> todayEvents = new ArrayList<>();

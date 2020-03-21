@@ -17,7 +17,7 @@ public class ClientManagemenFragment extends Fragment {
 
     private View view = null;
 
-    private Switch Switch1, Switch2 ,Switch3 ,Switch4;
+    private Switch Switch1, Switch2 ,Switch3;
     private Button btnSubmit;
 
     @Override
@@ -40,7 +40,7 @@ public class ClientManagemenFragment extends Fragment {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String statusSwitch1, statusSwitch2 , statusSwitch3, statusSwitch4 ;
+                String statusSwitch1, statusSwitch2 , statusSwitch3 ;
                 if (Switch1.isChecked())
                     statusSwitch1 = Switch1.getTextOn().toString();
                 else
@@ -57,12 +57,7 @@ public class ClientManagemenFragment extends Fragment {
                     statusSwitch3 = Switch3.getTextOff().toString();
 
 
-                if (Switch4.isChecked())
-                    statusSwitch4 = Switch4.getTextOn().toString();
-                else
-                    statusSwitch4 = Switch4.getTextOff().toString();
-
-                Toast.makeText(getContext(), "Switch1 :" + statusSwitch1 + "\n" + "Switch2 :" + statusSwitch2 +  "\n" + "Switch3 :" + statusSwitch3 + "\n" + "Switch4 :" + statusSwitch4, Toast.LENGTH_LONG).show(); // display the current state for switch's
+                Toast.makeText(getContext(), "Switch1 :" + statusSwitch1 + "\n" + "Switch2 :" + statusSwitch2 +  "\n" + "Switch3 :" + statusSwitch3 + "\n" + "השינויים נשמרו בהצלחה !", Toast.LENGTH_LONG).show(); // display the current state for switch's
             }
         });
 
@@ -74,7 +69,6 @@ public class ClientManagemenFragment extends Fragment {
         Switch1 = view.findViewById(R.id.Switch1);
         Switch2 = view.findViewById(R.id.Switch2);
         Switch3 = view.findViewById(R.id.Switch3);
-        Switch4 = view.findViewById(R.id.Switch4);
         btnSubmit = view.findViewById(R.id.btnSubmit);
 
     }

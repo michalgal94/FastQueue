@@ -9,10 +9,12 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.google.firebase.database.collection.LLRBNode;
+
 public class Type {
 
     public static String[] TYPES = {"צבע","פן","תספורת"};
-    public static int[] TYPE_COLOR = {Color.YELLOW,Color.RED,Color.GREEN};
+    public static int[] TYPE_COLOR = {Color.GRAY,Color.RED ,Color.GREEN};
 
     private String desc;
     private String min;

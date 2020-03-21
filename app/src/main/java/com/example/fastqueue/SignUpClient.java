@@ -147,4 +147,12 @@ public class SignUpClient extends AppCompatActivity {
     }
 
 
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent backIntent = new Intent(SignUpClient.this,ChooseOption.class);
+        startActivity(backIntent);
+        SignUpClient.this.finish();
+    }
+
+
 }

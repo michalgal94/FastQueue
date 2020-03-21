@@ -21,7 +21,7 @@
                 android:id="@+id/type_of_queue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="29dp"
                 android:layout_toLeftOf="@id/open_hours"
                 android:src="@drawable/ic_types" />
 
@@ -38,18 +38,19 @@
                 android:id="@+id/settings_BTN"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginLeft="2dp"
                 android:layout_toRightOf="@id/open_hours"
-                android:src="@drawable/ic_set" />
+                android:src="@drawable/ic_sett" />
 
 
-            <Button
+            <ImageView
                 android:id="@+id/set_date_BTN"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="קפוץ לתאריך"
+                android:src="@drawable/ic_date_picker"
                 android:layout_toRightOf="@id/settings_BTN"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:layout_centerHorizontal="true"/>
 
 

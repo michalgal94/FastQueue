@@ -53,7 +53,7 @@ public class QueuesList extends AppCompatActivity {
         context = this;
 
 
-        MyFirebase.getEvents(new MyFirebase.Callback_EventsReady() {
+        MyFirebase.getEvents(new Callback_EventsReady() {
             @Override
             public void eventsReady(List<WeekViewEvent> newEvents) {
                 Collections.sort(newEvents, new Comparator<WeekViewEvent>() {

@@ -8,21 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.google.android.gms.common.api.Api;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-public class Clients extends AppCompatActivity {
+public class ClientsList extends AppCompatActivity {
 
     private MySharedPreferences mySharedPreferences;
     private BusinessMan myBusinessMan;
@@ -38,7 +31,7 @@ public class Clients extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clients);
+        setContentView(R.layout.activity_clients_list);
 
         remove_client_BTN = findViewById(R.id.remove_client_BTN);
         add_client_BTN = findViewById(R.id.add_client_BTN);
@@ -161,7 +154,7 @@ public class Clients extends AppCompatActivity {
 //                    if (!(clientName.trim().equals("") && clientPhone.trim().equals(""))) {
 //                        createClient_EDT_name.setError("יש להכניס שם לקוח");
 //                        createClient_EDT_phone.setError("יש להכניס טלפון לקוח");
-//                        Toast.makeText(Clients.this, "הכנס שם לקוח וטלפון", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(ClientsList.this, "הכנס שם לקוח וטלפון", Toast.LENGTH_SHORT).show();
 //                        goodInput = true;
 //                    }
 //
@@ -203,8 +196,8 @@ public class Clients extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent backIntent = new Intent(Clients.this,MenuActivityBusiness.class);
+        Intent backIntent = new Intent(ClientsList.this,MenuActivityBusiness.class);
         startActivity(backIntent);
-        Clients.this.finish();
+        ClientsList.this.finish();
     }
 }

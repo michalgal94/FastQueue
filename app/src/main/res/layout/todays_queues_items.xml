@@ -12,6 +12,7 @@
         android:gravity = "center"
         android:padding = "5dp"
         android:text="סוג התור"
+        android:fontFamily="@font/gveretlevinalefalefalef"
         android:textSize="16dp"
         />
 
@@ -22,7 +23,8 @@
         android:layout_weight = "1"
         android:gravity = "center"
         android:padding = "5dp"
-        android:text="שעת סיוםר"
+        android:text="שעת סיום"
+        android:fontFamily="@font/gveretlevinalefalefalef"
         android:textSize="16dp" />
 
     <TextView
@@ -33,6 +35,7 @@
         android:gravity = "center"
         android:padding = "5dp"
         android:text = "שעת התחלה"
+        android:fontFamily="@font/gveretlevinalefalefalef"
         android:textSize="16dp"
         />
 
@@ -45,6 +48,7 @@
         android:padding = "5dp"
         android:textSize="16dp"
         android:text = "תאריך"
+        android:fontFamily="@font/gveretlevinalefalefalef"
         />
 
     <TextView
@@ -55,6 +59,7 @@
         android:gravity = "center"
         android:padding = "5dp"
         android:textSize="16dp"
+        android:fontFamily="@font/gveretlevinalefalefalef"
         android:text = "שם"
         />
 
