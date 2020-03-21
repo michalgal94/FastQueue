@@ -161,6 +161,9 @@ public class BusinessSchedule extends AppCompatActivity {
     private void showSettingsDialog() {
 
         final EditText minutesForCaell = new EditText(this);
+        final MySharedPreferences mySharedPreferences = new MySharedPreferences(this);
+        String timeFrame = mySharedPreferences.getString(Constants.KEY_BUSINESS_TIME_FRAME, "60");
+        minutesForCaell.setText(timeFrame);
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle("הגדרות יומן")
                 .setMessage("דקות לתא")
@@ -168,7 +171,8 @@ public class BusinessSchedule extends AppCompatActivity {
                 .setPositiveButton("שמור", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String task = String.valueOf(minutesForCaell.getText());
+                        String t = String.valueOf(minutesForCaell.getText());
+                        mySharedPreferences.putString(Constants.KEY_BUSINESS_TIME_FRAME,t);
                     }
                 })
                 .setNegativeButton("סגור", null)

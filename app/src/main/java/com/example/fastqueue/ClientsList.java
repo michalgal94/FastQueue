@@ -42,7 +42,11 @@ public class ClientsList extends AppCompatActivity {
         clientsPicked = new ArrayList<Contact>();
         contactListRecycleView = findViewById(R.id.clients_view);
         contactListRecycleView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new ContactListAdapter(this, myBusinessMan.getClientsList());
+        if(myBusinessMan.getClientsList() == null) {
+            adapter = new ContactListAdapter(this, new ArrayList<Contact>());
+        } else {
+            adapter = new ContactListAdapter(this, myBusinessMan.getClientsList());
+        }
         adapter.setClickListener(itemClickListener);
         contactListRecycleView.setAdapter(adapter);
 //        goodInput = false;
@@ -71,7 +75,12 @@ public class ClientsList extends AppCompatActivity {
         createNewClientDialog.setCallBack_clientAdded(new CallBack_ClientAdded() {
             @Override
             public void clientAdded(Contact contact) {
-                ArrayList<Contact> myClients = myBusinessMan.getClientsList();
+                ArrayList<Contact> myClients;
+                if(myBusinessMan.getClientsList() == null) {
+                    myClients = new ArrayList<>();
+                } else {
+                    myClients = myBusinessMan.getClientsList();
+                }
                 myClients.add(contact);
                 myBusinessMan.setClientsList(myClients);
 
@@ -80,11 +89,24 @@ public class ClientsList extends AppCompatActivity {
                 MyFirebase.setBusiness(myBusinessMan);
 
                 adapter.setMapValByKey(contact.getName(), false);
+
+                createContactList(myBusinessMan.getClientsList());
                 adapter.notifyDataSetChanged();
             }
         });
     }
 
+    private void createContactList(ArrayList<Contact> contacts) {
+        contactListRecycleView = findViewById(R.id.clients_view);
+        contactListRecycleView.setLayoutManager(new LinearLayoutManager(this));
+        if(myBusinessMan.getClientsList() == null) {
+            adapter = new ContactListAdapter(this, new ArrayList<Contact>());
+        } else {
+            adapter = new ContactListAdapter(this, contacts);
+        }
+        adapter.setClickListener(itemClickListener);
+        contactListRecycleView.setAdapter(adapter);
+    }
 
     private void deleteClientsWithAlert() {
         AlertDialog dialog = new AlertDialog.Builder(this)
@@ -181,7 +203,7 @@ public class ClientsList extends AppCompatActivity {
     private ContactListAdapter.ItemClickListener itemClickListener = new ContactListAdapter.ItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
-            Contact contact = ContactListAdapter.getItem(position);
+            Contact contact = adapter.getItem(position);
             adapter.setMapValByKey(contact.getName(), !adapter.getMap().get(contact.getName()));
             adapter.notifyItemChanged(position);
             if(adapter.getMap().get(contact.getName())) {

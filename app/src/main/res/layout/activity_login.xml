@@ -71,7 +71,7 @@
             android:layout_below="@+id/edit_TXT_pass"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_create_account"
-            android:layout_marginTop="135dp"
+            android:layout_marginTop="139dp"
             android:layout_marginLeft="30dp"
 
             />

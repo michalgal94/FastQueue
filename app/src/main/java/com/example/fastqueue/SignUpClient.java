@@ -68,18 +68,14 @@ public class SignUpClient extends AppCompatActivity {
                 if(isEmpty(edit_TXT_verify)) {
                     err(edit_TXT_verify, "אנא הכנס אימות חוקי");
                 } else {
-//                    if(edit_TXT_verify.getText().toString().length() != edit_TXT_pass.getText().toString().length()) {
-//                        err(edit_TXT_verify, "אנא הכנס סיסמה בעלת 8 תווים לפחות");
                         if (!edit_TXT_verify.getText().toString().equals(edit_TXT_pass.getText().toString())) {
                             err(edit_TXT_verify, "הסיסמאות אינן תואמות ! אנא נסה שנית");
                         } else {
                             verifyOk = true;
                         }
-//                    }
 
                 }
 
-//              User user = new User("MichalGal", "michal12758@gmail.com" , 12345);
                 Log.d("vvv","info");
                 if(userNameOk && passwordOk && emailOk && verifyOk) {
                     MyFirebase.getUsers(new CallBack_UsersReady() {
@@ -89,7 +85,7 @@ public class SignUpClient extends AppCompatActivity {
                         public void usersReady(ArrayList<User> users) {
                             for(User userFire : users) {
                                 if(userFire.getPhone().equalsIgnoreCase(user.getPhone())) {
-                                    Toast.makeText(SignUpClient.this, "אימייל זה כבר שמור במערכת", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignUpClient.this, "טלפון זה כבר שמור במערכת", Toast.LENGTH_SHORT).show();
                                     okCreate = false;
                                 }
                             }
@@ -107,17 +103,7 @@ public class SignUpClient extends AppCompatActivity {
 
                         }
                     });
-//                    Log.d("vvv","user created good");
-//                    User user = new User(edit_TXT_username.getText().toString(),edit_TXT_email.getText().toString(), edit_TXT_pass.getText().toString(), edit_TXT_verify.getText().toString(), edit_TXT_phone.getText().toString(), true);
-////                    Log.d("vvv","email:" + user.getEmail());
-////                    Log.d("vvv","pass:" + user.getPassword());
-////                    Log.d("vvv","pass valid:" + user.getVerify());
-////                    Log.d("vvv","username:" + user.getUsername());
-//                    MyFirebase.setUser(user);
-//                    Toast.makeText(SignUpClient.this, "חשבון נוצר בהצלחה", Toast.LENGTH_SHORT).show();
-//                    Intent signIntent = new Intent(SignUpClient.this, Login.class);
-//                    startActivity(signIntent);
-//                    SignUpClient.this.finish();
+
                 }
 
 

@@ -53,7 +53,6 @@ public class ContactsList extends AppCompatActivity {
             hasContactsPremission = false;
         }
 
-        ArrayList<Contact> contacts;
         if (hasContactsPremission) {
             contactListRecycleView = findViewById(R.id.contacts_list);
             contactListRecycleView.setLayoutManager(new LinearLayoutManager(this));
@@ -67,7 +66,9 @@ public class ContactsList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                add contacts to business.
-                myBusinessman.setClientsList(contactsToClientsList);
+                ArrayList<Contact> tempList = myBusinessman.getClientsList();
+                tempList.addAll(contactsToClientsList);
+                myBusinessman.setClientsList(tempList);
 
                 String jsonUserBussinessUpdated = new Gson().toJson(myBusinessman);
                 mySharedPreferences.putString(Constants.KEY_USER_PREFRENCES, jsonUserBussinessUpdated);
@@ -81,7 +82,7 @@ public class ContactsList extends AppCompatActivity {
     private ContactListAdapter.ItemClickListener itemClickListener = new ContactListAdapter.ItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
-            Contact contact = ContactListAdapter.getItem(position);
+            Contact contact = adapter.getItem(position);
             adapter.setMapValByKey(contact.getName(), !adapter.getMap().get(contact.getName()));
             adapter.notifyItemChanged(position);
             if(adapter.getMap().get(contact.getName())) {
@@ -98,7 +99,6 @@ public class ContactsList extends AppCompatActivity {
 //            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, 111);
 
         ArrayList<Contact> contancts = new ArrayList<>();
-
         String phoneNumber = "";
         String email = "";
 
@@ -147,6 +147,7 @@ public class ContactsList extends AppCompatActivity {
 
                     // Query and loop for every email of the contact
                     Cursor emailCursor = contentResolver.query(EmailCONTENT_URI, null, EmailCONTACT_ID + " = ?", new String[]{contact_id}, null);
+                    email = "";
                     while (emailCursor.moveToNext()) {
                         email = emailCursor.getString(emailCursor.getColumnIndex(DATA));
                         break;

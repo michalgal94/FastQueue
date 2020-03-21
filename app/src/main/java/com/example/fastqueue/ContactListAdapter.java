@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ViewHolder> {
-    private static List<Contact> mData;
+    private List<Contact> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     private HashMap<String, Boolean> contactMap; // use for tick v
@@ -100,7 +100,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     }
 
     // convenience method for getting data at click position
-    static Contact getItem(int id) {
+    Contact getItem(int id) {
         return mData.get(id);
     }
 
