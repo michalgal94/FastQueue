@@ -47,7 +47,6 @@
                     android:id="@+id/IMG_waze"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_weight="2"
                     android:src="@drawable/ic_waze" />
 
@@ -55,7 +54,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="0.5"
                     android:text="ניווט לבית העסק"
@@ -103,7 +102,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="15dp"
                     android:src="@drawable/ic_contact" />
 
 
@@ -111,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="30dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="15dp"
                     android:layout_weight="0.5"
                     android:text="צור קשר"
@@ -166,8 +166,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="29dp"
                     android:layout_weight="0.5"
                     android:text="תמיכה"
                     android:fontFamily="@font/choco"
@@ -214,15 +214,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/ic_create" />
 
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="25dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="20dp"
                     android:layout_weight="0.5"
                     android:text="קביעת תור"
                     android:fontFamily="@font/choco"

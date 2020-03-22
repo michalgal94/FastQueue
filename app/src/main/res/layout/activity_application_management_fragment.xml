@@ -25,15 +25,15 @@
 
 
     <TextView
-        android:id="@+id/display_holidays"
+        android:id="@+id/blocking_late_evening"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="הצג חגים"
+        android:text=" חסימת שעות ערב מאוחרות"
         android:textSize="18dp"
         android:fontFamily="@font/gveretlevinalefalefalef"
         android:layout_marginTop="40dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="50dp"
+        android:layout_marginRight="40dp"
         android:layout_below="@+id/management_app_title"/>
 
 
@@ -41,8 +41,8 @@
         android:id="@+id/simpleSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/display_holidays"
-        android:layout_marginRight="150dp"
+        android:layout_toLeftOf="@+id/blocking_late_evening"
+        android:layout_marginRight="80dp"
         android:layout_marginTop="40dp"
         android:layout_below="@+id/management_app_title"
         android:checked="true"
@@ -51,26 +51,26 @@
 
 
     <TextView
-        android:id="@+id/start_blocking"
+        android:id="@+id/blocking_holidays"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="חסימה ערב חג"
+        android:text="חסימת ערב חג "
         android:fontFamily="@font/gveretlevinalefalefalef"
         android:textSize="18dp"
         android:layout_marginTop="40dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="50dp"
-        android:layout_below="@+id/display_holidays"/>
+        android:layout_below="@+id/blocking_late_evening"/>
 
 
     <Switch
         android:id="@+id/simpleSwitch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/display_holidays"
-        android:layout_marginRight="150dp"
+        android:layout_toLeftOf="@+id/blocking_holidays"
+        android:layout_marginEnd="142dp"
         android:layout_marginTop="40dp"
-        android:layout_below="@+id/display_holidays"
+        android:layout_below="@+id/blocking_late_evening"
         android:checked="true"
         android:textOff="Off"
         android:textOn="On"/>
@@ -83,7 +83,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/start_blocking"
+        android:layout_below="@id/blocking_holidays"
         android:background="@drawable/rounded_edit_txt"
         android:text="עדכן"
         android:fontFamily="@font/gveretlevinalefalefalef"

@@ -69,32 +69,6 @@
         android:layout_toLeftOf="@+id/joined_queues"
         android:checked="true" />
 
-    <TextView
-        android:id="@+id/display_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="הצגת מחיר"
-        android:fontFamily="@font/gveretlevinalefalefalef"
-        android:textSize="18dp"
-        android:layout_marginTop="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="40dp"
-        android:layout_below="@id/joined_queues"/>
-
-
-    <Switch
-        android:id="@+id/Switch3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/joined_queues"
-        android:layout_marginTop="35dp"
-        android:layout_marginRight="145dp"
-        android:layout_toLeftOf="@+id/limit_double_queue"
-        android:checked="true"
-        android:textOff="Off"
-        android:textOn="On" />
-
-
 
 
     <Button
@@ -103,7 +77,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/display_price"
+        android:layout_below="@id/joined_queues"
         android:background="@drawable/rounded_edit_txt"
         android:text="עדכן"
         android:fontFamily="@font/gveretlevinalefalefalef"

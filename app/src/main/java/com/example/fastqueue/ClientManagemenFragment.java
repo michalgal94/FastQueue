@@ -51,13 +51,8 @@ public class ClientManagemenFragment extends Fragment {
                     statusSwitch2 = Switch2.getTextOff().toString();
 
 
-                if (Switch3.isChecked())
-                    statusSwitch3 = Switch3.getTextOn().toString();
-                else
-                    statusSwitch3 = Switch3.getTextOff().toString();
 
-
-                Toast.makeText(getContext(), "Switch1 :" + statusSwitch1 + "\n" + "Switch2 :" + statusSwitch2 +  "\n" + "Switch3 :" + statusSwitch3 + "\n" + "השינויים נשמרו בהצלחה !", Toast.LENGTH_LONG).show(); // display the current state for switch's
+                Toast.makeText(getContext(), "Switch1 :" + statusSwitch1 + "\n" + "Switch2 :" + statusSwitch2 + "\n" + "השינויים נשמרו בהצלחה !", Toast.LENGTH_LONG).show(); // display the current state for switch's
             }
         });
 
@@ -68,7 +63,6 @@ public class ClientManagemenFragment extends Fragment {
     private void findViews() {
         Switch1 = view.findViewById(R.id.Switch1);
         Switch2 = view.findViewById(R.id.Switch2);
-        Switch3 = view.findViewById(R.id.Switch3);
         btnSubmit = view.findViewById(R.id.btnSubmit);
 
     }

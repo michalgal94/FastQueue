@@ -65,6 +65,7 @@ public class ApplicationManagementFragment extends Fragment {
 
     private void findViews() {
         simpleSwitch = view.findViewById(R.id.simpleSwitch);
+        simpleSwitch1 =view.findViewById(R.id.simpleSwitch1);
         btnSubmit = view.findViewById(R.id.btnSubmit);
     }
 

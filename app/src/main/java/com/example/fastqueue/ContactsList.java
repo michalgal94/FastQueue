@@ -66,7 +66,12 @@ public class ContactsList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                add contacts to business.
-                ArrayList<Contact> tempList = myBusinessman.getClientsList();
+                ArrayList<Contact> tempList;
+                if(myBusinessman.getClientsList() == null) {
+                    tempList = new ArrayList<>();
+                } else {
+                    tempList = myBusinessman.getClientsList();
+                }
                 tempList.addAll(contactsToClientsList);
                 myBusinessman.setClientsList(tempList);
 
