@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -74,6 +75,7 @@ public class ContactsList extends AppCompatActivity {
                 }
                 tempList.addAll(contactsToClientsList);
                 myBusinessman.setClientsList(tempList);
+                Toast.makeText(getApplicationContext(), "הלקוחות נוספו בהצלחה!", Toast.LENGTH_SHORT).show();
 
                 String jsonUserBussinessUpdated = new Gson().toJson(myBusinessman);
                 mySharedPreferences.putString(Constants.KEY_USER_PREFRENCES, jsonUserBussinessUpdated);
