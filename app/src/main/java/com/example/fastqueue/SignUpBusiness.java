@@ -110,7 +110,7 @@ public class SignUpBusiness extends AppCompatActivity {
                 }
 
 
-                if(userNameOk && passwordOk && emailOk && verifyOk && businessNameOk && businessAddressOk) {
+                if(userNameOk && passwordOk && emailOk && verifyOk && phoneOk && businessNameOk && businessAddressOk) {
                     MyFirebase.getUsers(new CallBack_UsersReady() {
                         BusinessMan businessMan = new BusinessMan(edit_TXT_username.getText().toString(),edit_TXT_email.getText().toString(), edit_TXT_pass.getText().toString(), edit_TXT_verify.getText().toString(),edit_phoneNumber.getText().toString(), false, edit_TXT_businessName.getText().toString(), edit_TXT_businessAddress.getText().toString());
                         boolean okCreate = true;
