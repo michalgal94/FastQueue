@@ -21,7 +21,6 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     private HashMap<String, Boolean> contactMap; // use for tick v
 
     private void initMap() {
-   //     if(mData == null)
         this.contactMap = new HashMap<>();
         for(Contact contact : this.mData) {
             contactMap.put(contact.getName(), false);

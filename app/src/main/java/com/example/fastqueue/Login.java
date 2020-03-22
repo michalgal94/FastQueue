@@ -123,10 +123,6 @@ public class Login extends AppCompatActivity {
         }
 
 
-//        boolean isUserNameValid(String username)  {
-//            return username.equals("test@test.com");
-//
-//        }
 
         boolean isPhoneValid(String phone) {
                 return android.util.Patterns.PHONE.matcher(phone).matches();

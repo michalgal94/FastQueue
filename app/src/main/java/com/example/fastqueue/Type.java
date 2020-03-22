@@ -49,18 +49,5 @@ public class Type {
 
 
 
-//    public class Type extends TableLayout {
-
-//    private TextView desc;
-//    private TextView min;
-//
-//
-//    public Type(Context context, String description , String minutes) {
-//        super(context);
-//        desc = new TextView(context);
-//        min = new TextView(context);
-//        addView(desc,0);
-//        addView(min,1);
-//    }
 
 }

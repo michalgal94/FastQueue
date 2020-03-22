@@ -37,10 +37,6 @@ import java.util.List;
 
 public class MyFirebase {
 
-//    public interface Callback_EventsReady{
-//        void eventsReady(List<WeekViewEvent> events);
-//        void onError();
-//    }
 
     public interface Callback_EventRemoved{
         void eventRemoved();

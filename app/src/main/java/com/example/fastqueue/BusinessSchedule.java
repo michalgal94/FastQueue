@@ -59,7 +59,7 @@ public class BusinessSchedule extends AppCompatActivity {
             public void eventsReady(List<WeekViewEvent> e) {
                 events.clear();
                 events.addAll(e);
-//                mWeekView.goToDate(events.get(0).getStartTime());
+
                 mWeekView.goToDate(Calendar.getInstance());
                 for(WeekViewEvent ev : events){
                     Log.e("EVENT","E: " + ev.getStartTime().toString() + "\n" + ev.getEndTime().toString());

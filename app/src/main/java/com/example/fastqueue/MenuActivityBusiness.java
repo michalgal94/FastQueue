@@ -15,8 +15,7 @@ public class MenuActivityBusiness extends AppCompatActivity {
     private CardView todays_queues_card;
     private CardView activity_card;
     private CardView settings_card;
-    //private CardView hold_card;
-    //private Toolbar menu_bar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,19 +28,6 @@ public class MenuActivityBusiness extends AppCompatActivity {
         todays_queues_card= findViewById(R.id.todays_queues_card);
         activity_card = findViewById(R.id.activity_card);
         settings_card= findViewById(R.id.settings_card);
-
-
-//        menu_bar = findViewById(R.id.menu_bar);
-
-        // Get a support ActionBar corresponding to this toolbar
-//        menu_bar.setTitle("תפריט ראשי");
-
-//        ActionBar ab = getSupportActionBar();
-//
-//        // Enable the Up button
-//        ab.setDisplayHomeAsUpEnabled(true);
-//
-//        getSupportActionBar().setTitle("תפריט");
 
 
         schedule_card.setOnClickListener(new View.OnClickListener() {
@@ -123,24 +109,6 @@ public class MenuActivityBusiness extends AppCompatActivity {
 
 
 
-//        public boolean onOptionsItemSelected (MenuItem item) {
-//
-//        switch (item.getItemId()) {
-//            case R.id.clients:
-//                // User chose the "Settings" item, show the app settings UI...
-//                return true;
-//
-//            case R.id.schedule:
-//                // User chose the "Favorite" action, mark the current item
-//                // as a favorite...
-//                return true;
-//
-//            default:
-//                // If we got here, the user's action was not recognized.
-//                // Invoke the superclass to handle it.
-//                return super.onOptionsItemSelected(item);
-//
-//        }
     }
 
 

@@ -43,10 +43,7 @@ public class ClientSchedule extends AppCompatActivity {
     private Context context;
     private final List<WeekViewEvent> weekViewEvents = new ArrayList<>();
 
-/*
-0503896023
-12345678
- */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -92,10 +92,6 @@ public class Settings extends AppCompatActivity {
         });
 
 
-//        TableLayout tableLayout = findViewById(R.id.types_table);
-//        TableRow row = new Type(this,"Tisporet","30");
-
-
 
         settings_BTN_app_manage.setOnClickListener(new View.OnClickListener() {
             @Override

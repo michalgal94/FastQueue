@@ -49,7 +49,6 @@ public class CreateNewClientDialog extends AppCompatDialogFragment {
         mySharedPreferences = new MySharedPreferences(getActivity());
         myBusinessMan = new Gson().fromJson(mySharedPreferences.getString(Constants.KEY_USER_PREFRENCES, ""), BusinessMan.class);
 
-//        createClient_BTN_addClient = getActivity().findViewById(R.id.createClient_BTN_addClient);
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View cutomProfileMsg = inflater.inflate(R.layout.activity_create_client, null);
@@ -111,11 +110,6 @@ public class CreateNewClientDialog extends AppCompatDialogFragment {
 
             if (nameOk && phoneOk) {
                 Contact contact = new Contact(clientName, clientEmail, "", clientPhone);
-//                ArrayList<Contact> tempList = myBusinessMan.getClientsList();
-//                tempList.add(contact);
-//                myBusinessMan.setClientsList(tempList);
-//                mySharedPreferences.putString(Constants.KEY_USER_PREFRENCES, new Gson().toJson(myBusinessMan));
-//                MyFirebase.setBusiness(myBusinessMan);
                 callBack_clientAdded.clientAdded(contact);
                 getDialog().dismiss();
             } else {

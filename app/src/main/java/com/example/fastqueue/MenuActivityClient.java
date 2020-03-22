@@ -52,9 +52,7 @@ public class MenuActivityClient extends AppCompatActivity {
                 //String uri = "waze://?ll=40.761043, -73.980545&z=10";
                 String uri = "geo: 31.886981, 35.022192";
                 startActivity(new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri)));
-//                Intent intent = new Intent(MenuActivityClient.this, NegativeArraySizeException.class);
-//                startActivity(intent);
-//                MenuActivityClient.this.finish();
+
 
             }
         });

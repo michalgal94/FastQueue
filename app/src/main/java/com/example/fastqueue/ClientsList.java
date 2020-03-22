@@ -23,7 +23,7 @@ public class ClientsList extends AppCompatActivity {
     private RecyclerView contactListRecycleView;
     private ContactListAdapter adapter;
     private ArrayList<Contact> clientsPicked;
-//    private boolean goodInput;
+
 
     private ImageView remove_client_BTN;
     private ImageView add_client_BTN;
@@ -49,7 +49,7 @@ public class ClientsList extends AppCompatActivity {
         }
         adapter.setClickListener(itemClickListener);
         contactListRecycleView.setAdapter(adapter);
-//        goodInput = false;
+
 
         add_client_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +62,7 @@ public class ClientsList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 deleteClientsWithAlert();
-                //refreshRecycler();
+
             }
         });
 
@@ -133,70 +133,6 @@ public class ClientsList extends AppCompatActivity {
                 .create();
         dialog.show();
     }
-
-
-//    private void createNewContact() {
-//
-//        final EditText createClient_EDT_name;
-//        final EditText createClient_EDT_phone;
-//        final EditText createClient_EDT_email;
-//        final Button createClient_BTN_addClient;
-//
-//        final MySharedPreferences mySharedPreferences;
-//        final BusinessMan myBusinessMan;
-//
-//        mySharedPreferences = new MySharedPreferences(this);
-//        myBusinessMan = new Gson().fromJson(mySharedPreferences.getString(Constants.KEY_USER_PREFRENCES, ""), BusinessMan.class);
-//
-//        createClient_EDT_name = findViewById(R.id.createClient_EDT_name);
-//        createClient_EDT_phone = findViewById(R.id.createClient_EDT_phone);
-//        createClient_EDT_email = findViewById(R.id.createClient_EDT_email);
-//        createClient_BTN_addClient = findViewById(R.id.createClient_BTN_addClient);
-//
-//        LayoutInflater inflater = this.getLayoutInflater();
-//        View cutomProfileMsg = inflater.inflate(R.layout.activity_create_client, null);
-//
-//       final AlertDialog dialog = new AlertDialog.Builder(this)
-//                //dialog.setView(cutomProfileMsg)
-//                .setTitle("הוספת לקוח חדש")
-//                .setPositiveButton("אישור", null)
-//                .setNegativeButton("סגור", null)
-//                .show();
-//        dialog.setView(cutomProfileMsg);
-//        Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
-//        positiveButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String clientName = "";
-//                String clientPhone = "";
-//                String clientEmail = "";
-//                    clientName = createClient_EDT_name.getText().toString();
-//                    clientPhone = createClient_EDT_phone.getText().toString();
-//                    clientEmail = createClient_EDT_email.getText().toString();
-//                    if (!(clientName.trim().equals("") && clientPhone.trim().equals(""))) {
-//                        createClient_EDT_name.setError("יש להכניס שם לקוח");
-//                        createClient_EDT_phone.setError("יש להכניס טלפון לקוח");
-//                        Toast.makeText(ClientsList.this, "הכנס שם לקוח וטלפון", Toast.LENGTH_SHORT).show();
-//                        goodInput = true;
-//                    }
-//
-//                if (goodInput) {
-//                    Contact contact = new Contact(clientName, clientPhone, "", clientEmail);
-//                    ArrayList<Contact> tempList = myBusinessMan.getClientsList();
-//                    tempList.add(contact);
-//                    myBusinessMan.setClientsList(tempList);
-//                    mySharedPreferences.putString(Constants.KEY_USER_PREFRENCES, new Gson().toJson(myBusinessMan));
-//                    MyFirebase.setBusiness(myBusinessMan);
-//                    goodInput = false;
-//                }
-//
-//            }
-//
-//
-//        });
-//    }
-
-
 
 
 

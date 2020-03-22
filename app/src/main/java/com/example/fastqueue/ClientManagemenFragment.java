@@ -17,7 +17,7 @@ public class ClientManagemenFragment extends Fragment {
 
     private View view = null;
 
-    private Switch Switch1, Switch2 ,Switch3;
+    private Switch Switch1, Switch2;
     private Button btnSubmit;
 
     @Override
@@ -40,7 +40,7 @@ public class ClientManagemenFragment extends Fragment {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String statusSwitch1, statusSwitch2 , statusSwitch3 ;
+                String statusSwitch1, statusSwitch2 ;
                 if (Switch1.isChecked())
                     statusSwitch1 = Switch1.getTextOn().toString();
                 else

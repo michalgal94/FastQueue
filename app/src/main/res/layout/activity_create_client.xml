@@ -8,7 +8,7 @@
         android:id="@+id/create_client_title"
         android:layout_width="wrap_content"
         android:layout_height="90dp"
-        android:text="הוספת לקוח חדש"
+        android:text="הוספת  לקוח  חדש"
         android:textSize="40sp"
         android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"

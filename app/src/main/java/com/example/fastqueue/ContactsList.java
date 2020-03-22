@@ -160,7 +160,7 @@ public class ContactsList extends AppCompatActivity {
                 }
                 Contact c = new Contact(name, email, contact_id, phoneNumber);
                 contancts.add(c);
-//                output.append("\n");
+
             }
         }
         return contancts;
@@ -177,17 +177,13 @@ public class ContactsList extends AppCompatActivity {
 //
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     fetchContacts();
-                    // permission was granted, yay! Do the
-                    // contacts-related task you need to do.
+
                 } else {
-                    // permission denied, boo! Disable the
-                    // functionality that depends on this permission.
+                    // permission denied!
                 }
                 return;
             }
 
-            // other 'case' lines to check for other
-            // permissions this app might request.
         }
     }
 
